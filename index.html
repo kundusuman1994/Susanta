@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>সুশান্ত কুণ্ডু — লেখালিখি</title>
+<meta name="description" content="সুশান্ত কুণ্ডুর প্রবন্ধ, অনুগল্প, কবিতা ও স্মৃতিকথার সংকলন।">
+<meta name="theme-color" content="#EDEAE0">
+<meta property="og:title" content="সুশান্ত কুণ্ডু — লেখালিখি">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@100..800&family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23EDEAE0'/%3E%3Crect x='4' y='4' width='4' height='24' fill='%238E2B22'/%3E%3Ccircle cx='19' cy='16' r='6' fill='none' stroke='%2328497C' stroke-width='2'/%3E%3C/svg%3E">
+
+<style>
+/* ═══════════════ tokens ═══════════════ */
+:root{
+  --paper:#EDEAE0; --paper-2:#E4E0D3; --card:#F4F2EA;
+  --ink:#151C25; --ink-soft:#585F6B; --ink-faint:#8A8F97;
+  --indigo:#28497C; --madder:#8E2B22; --rule:#C9C2AE;
+  --fs:19px;
+  --measure:35rem;
+  --paar:12px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+html[data-theme="dark"]{
+  --paper:#111721; --paper-2:#171E29; --card:#1A2230;
+  --ink:#E8E3D6; --ink-soft:#9BA4B0; --ink-faint:#6E7783;
+  --indigo:#93B3E0; --madder:#D97A6D; --rule:#2C3644;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0;min-width:0}
+html{-webkit-text-size-adjust:100%; scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation-duration:.001ms !important; transition-duration:.001ms !important}
+}
+
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Tiro Bangla','Noto Serif Bengali',Georgia,serif;
+  font-size:var(--fs);
+  line-height:1.9;
+  min-height:100dvh;
+  min-width:0;
+  overflow-x:hidden;
+  padding-left:var(--paar);
+  padding-right:env(safe-area-inset-right);
+  transition:background .35s var(--ease), color .35s var(--ease);
+}
+
+/* ── the পাড় : woven border strip ── */
+body::before{
+  content:''; position:fixed; inset:0 auto 0 0; width:var(--paar); z-index:60;
+  background:
+    linear-gradient(90deg, transparent 0 calc(var(--paar) - 2px), rgba(0,0,0,.18) calc(var(--paar) - 2px) 100%),
+    repeating-linear-gradient(180deg, var(--indigo) 0 3px, transparent 3px 11px),
+    var(--madder);
+  pointer-events:none;
+}
+
+/* ── reading progress ── */
+#prog{position:fixed;top:0;left:var(--paar);height:3px;width:0;background:var(--madder);z-index:70;transition:width .1s linear}
+
+/* ═══════════════ layout ═══════════════ */
+.wrap{max-width:min(74rem,100%);margin:0 auto;padding:0 clamp(18px,5vw,56px);min-width:0}
+
+/* ═══════════════ masthead ═══════════════ */
+header.mast{padding:clamp(38px,7vw,72px) 0 0}
+.mast .eyebrow{
+  font-family:'Anek Bangla',sans-serif;font-weight:500;font-size:.62rem;
+  letter-spacing:.30em;color:var(--madder);text-transform:none;margin:0 0 14px
+}
+.mast h1{
+  font-family:'Anek Bangla',sans-serif;font-weight:700;
+  font-size:clamp(2.5rem,10vw,5rem);line-height:1.06;letter-spacing:-.015em;
+  margin:0 0 12px;color:var(--ink)
+}
+.mast .vow{
+  max-width:34rem;color:var(--ink-soft);font-size:.94rem;line-height:1.85;margin:0 0 26px
+}
+.rule{height:1px;background:var(--rule);border:0;margin:0}
+.rule.double{height:4px;background:none;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+
+/* ═══════════════ toolbar ═══════════════ */
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:16px 0;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:7px;min-width:0}
+button,input{font:inherit;color:inherit}
+.chip{
+  font-family:'Anek Bangla',sans-serif;font-size:.82rem;font-weight:500;
+  padding:9px 15px;min-height:42px;border:1px solid var(--rule);background:transparent;
+  border-radius:999px;cursor:pointer;color:var(--ink-soft);
+  transition:all .2s var(--ease);
+}
+.chip:hover{border-color:var(--indigo);color:var(--indigo)}
+.chip[aria-pressed="true"]{background:var(--indigo);border-color:var(--indigo);color:var(--paper)}
+html[data-theme="dark"] .chip[aria-pressed="true"]{color:#111721}
+
+.tools{margin-left:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.icb{
+  font-family:'Anek Bangla',sans-serif;font-size:.85rem;font-weight:500;
+  min-width:44px;min-height:44px;padding:0 13px;border:1px solid var(--rule);
+  background:transparent;border-radius:8px;cursor:pointer;color:var(--ink-soft);
+  transition:all .2s var(--ease);
+}
+.icb:hover{border-color:var(--indigo);color:var(--indigo)}
+.search{position:relative;min-width:0;flex:1 1 190px;max-width:280px}
+.search input{
+  width:100%;min-height:44px;padding:8px 14px;border:1px solid var(--rule);
+  background:transparent;border-radius:8px;font-family:'Anek Bangla',sans-serif;font-size:.9rem
+}
+.search input::placeholder{color:var(--ink-faint)}
+.search input:focus{outline:2px solid var(--indigo);outline-offset:1px;border-color:transparent}
+
+:focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:4px}
+
+/* ═══════════════ index list ═══════════════ */
+.list{padding:8px 0 60px}
+.entry{
+  display:grid;grid-template-columns:96px minmax(0,1fr);gap:0 26px;
+  padding:30px 0;border-top:1px solid var(--rule);min-width:0;
+  cursor:pointer;position:relative;
+  transition:background .25s var(--ease);
+}
+.entry:hover{background:linear-gradient(90deg,var(--card),transparent 70%)}
+.entry .when{
+  font-family:'Anek Bangla',sans-serif;font-size:.78rem;font-weight:500;
+  color:var(--ink-faint);line-height:1.6;padding-top:.55rem;letter-spacing:.02em
+}
+.entry .body{min-width:0}
+.entry .kind{
+  display:inline-block;font-family:'Anek Bangla',sans-serif;font-size:.63rem;font-weight:600;
+  letter-spacing:.24em;color:var(--madder);margin:0 0 7px
+}
+.entry h2{
+  font-family:'Anek Bangla',sans-serif;font-weight:600;font-size:clamp(1.25rem,4.2vw,1.72rem);
+  line-height:1.35;margin:0 0 9px;letter-spacing:-.01em;
+}
+.entry:hover h2{color:var(--indigo)}
+.entry p.ex{margin:0;color:var(--ink-soft);font-size:.95rem;line-height:1.8;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.entry .tail{
+  font-family:'Anek Bangla',sans-serif;font-size:.75rem;color:var(--ink-faint);margin-top:11px;
+  display:flex;gap:14px;flex-wrap:wrap
+}
+.entry .thumb{width:100%;margin-top:14px;border-radius:3px;border:1px solid var(--rule);
+  max-height:180px;object-fit:cover;object-position:top;display:block}
+
+.empty{padding:70px 0;text-align:center;color:var(--ink-faint);font-family:'Anek Bangla',sans-serif}
+
+/* ═══════════════ article ═══════════════ */
+.back{
+  font-family:'Anek Bangla',sans-serif;font-size:.85rem;font-weight:500;color:var(--ink-soft);
+  background:none;border:0;padding:14px 0;cursor:pointer;display:inline-flex;gap:8px;align-items:center
+}
+.back:hover{color:var(--madder)}
+article{max-width:var(--measure);margin:0 auto;padding:6px 0 90px;min-width:0}
+article .kind{
+  display:block;font-family:'Anek Bangla',sans-serif;font-size:.65rem;font-weight:600;
+  letter-spacing:.26em;color:var(--madder);margin:22px 0 12px
+}
+article h1{
+  font-family:'Anek Bangla',sans-serif;font-weight:700;
+  font-size:clamp(1.85rem,7vw,3rem);line-height:1.22;letter-spacing:-.015em;margin:0 0 10px
+}
+article .sub{color:var(--ink-soft);font-size:1rem;margin:0 0 18px}
+.meta{
+  font-family:'Anek Bangla',sans-serif;font-size:.78rem;color:var(--ink-faint);
+  display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+  padding-bottom:20px;border-bottom:1px solid var(--rule);margin-bottom:32px
+}
+.meta .dot{color:var(--rule)}
+
+article p{margin:0 0 1.35em}
+article p.lead::first-letter{
+  float:right;font-family:'Anek Bangla',sans-serif;font-weight:700;font-size:3.1em;
+  line-height:.86;margin:.08em 0 0 .1em;color:var(--madder)
+}
+/* Bengali has no drop-cap tradition on the right; keep it left */
+article p.lead::first-letter{float:left;margin:.06em .12em 0 0}
+
+.verse{
+  margin:2em 0;padding:.2em 0 .2em 20px;border-left:2px solid var(--madder);
+  color:var(--indigo);font-size:.98em;line-height:2.05;white-space:pre-line
+}
+.quote{
+  margin:2em 0;padding:0 0 0 20px;border-left:1px solid var(--rule);
+  color:var(--ink-soft);font-size:.97em;line-height:2
+}
+.callout{
+  margin:2.2em 0;padding:20px 22px;background:var(--card);border-radius:3px;
+  border-top:2px solid var(--madder);font-size:.98em;line-height:2
+}
+article h3{
+  font-family:'Anek Bangla',sans-serif;font-weight:600;font-size:1.2rem;
+  margin:2.4em 0 .8em;letter-spacing:-.005em
+}
+article strong{font-weight:400;font-family:'Anek Bangla',sans-serif;font-weight:600}
+.byline{font-family:'Anek Bangla',sans-serif;font-size:.9rem;color:var(--ink-soft);margin:0 0 2em}
+
+/* figures */
+figure{margin:2.4em 0;min-width:0}
+figure img{width:100%;height:auto;display:block;border:1px solid var(--rule);border-radius:2px;cursor:zoom-in;background:var(--card)}
+figcaption{font-family:'Anek Bangla',sans-serif;font-size:.75rem;color:var(--ink-faint);margin-top:9px;text-align:center}
+
+/* sources */
+.sources{margin:3em 0 0;padding:22px 0 0;border-top:1px solid var(--rule)}
+.sources h4{font-family:'Anek Bangla',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.24em;color:var(--madder);margin:0 0 12px}
+.sources ol{margin:0;padding-inline-start:1.3em;color:var(--ink-soft);font-size:.9rem;line-height:1.9}
+
+/* ── timeline (signature) ── */
+.tl{list-style:none;margin:1.6em 0 0;padding:0 0 0 20px;border-left:1px solid var(--rule)}
+.tl li{position:relative;padding:9px 0;font-size:.94em;line-height:1.75;color:var(--ink-soft)}
+.tl li::before{
+  content:'';position:absolute;left:-24px;top:1.05em;width:7px;height:7px;border-radius:50%;
+  background:var(--paper);border:1px solid var(--rule)
+}
+.tl li .y{font-family:'Anek Bangla',sans-serif;font-weight:600;color:var(--indigo);margin-inline-end:.5em}
+.tl li.last{color:var(--ink);font-size:1.02em}
+.tl li.last::before{background:var(--madder);border-color:var(--madder);width:11px;height:11px;left:-26px}
+.tl li.last .y{color:var(--madder)}
+
+/* ═══════════════ about ═══════════════ */
+.about{max-width:var(--measure);margin:0 auto;padding:10px 0 90px}
+.about .por{width:120px;height:120px;border-radius:50%;object-fit:cover;border:1px solid var(--rule);display:block;margin:0 0 22px}
+.about h1{font-family:'Anek Bangla',sans-serif;font-weight:700;font-size:clamp(1.7rem,6vw,2.5rem);margin:0 0 18px;letter-spacing:-.015em}
+.about a{color:var(--indigo)}
+
+/* ═══════════════ footer ═══════════════ */
+footer{border-top:1px solid var(--rule);padding:28px 0 calc(40px + env(safe-area-inset-bottom));
+  font-family:'Anek Bangla',sans-serif;font-size:.78rem;color:var(--ink-faint);
+  display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between}
+footer button{background:none;border:0;color:var(--ink-faint);cursor:pointer;font-size:.78rem;padding:8px 0}
+footer button:hover{color:var(--madder)}
+
+/* ═══════════════ up ═══════════════ */
+#up{
+  position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:55;
+  min-width:46px;min-height:46px;border-radius:50%;border:1px solid var(--rule);
+  background:var(--card);color:var(--ink-soft);font-family:'Anek Bangla',sans-serif;font-size:.75rem;
+  cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s var(--ease);
+  box-shadow:0 4px 18px rgba(0,0,0,.10)
+}
+#up.on{opacity:1;pointer-events:auto}
+
+/* ═══════════════ lightbox ═══════════════ */
+#lb{position:fixed;inset:0;z-index:90;background:rgba(10,12,16,.94);display:none;
+  align-items:center;justify-content:center;padding:16px;cursor:zoom-out}
+#lb.on{display:flex}
+#lb img{max-width:100%;max-height:92dvh;object-fit:contain}
+#lb .x{position:absolute;top:calc(12px + env(safe-area-inset-top));right:14px;color:#EDEAE0;background:none;border:1px solid rgba(237,234,224,.35);
+  border-radius:8px;min-width:44px;min-height:44px;font-family:'Anek Bangla',sans-serif;cursor:pointer}
+
+/* ═══════════════ mobile ═══════════════ */
+@media (max-width:720px){
+  :root{--paar:0px}
+  body{padding-left:0;padding-top:6px}
+  body::before{
+    inset:0 0 auto 0;width:auto;height:6px;
+    background:
+      linear-gradient(180deg, transparent 0 4px, rgba(0,0,0,.18) 4px 100%),
+      repeating-linear-gradient(90deg, var(--indigo) 0 3px, transparent 3px 11px),
+      var(--madder);
+  }
+  #prog{left:0;top:6px}
+  .wrap{padding:0 18px}
+  .entry{grid-template-columns:minmax(0,1fr);gap:0;padding:26px 0}
+  .entry .when{padding-top:0;margin-bottom:6px;font-size:.74rem}
+  .entry:hover{background:none}
+  article{padding-top:0}
+  .tools{margin-left:0;width:100%}
+  .search{max-width:none}
+  footer{flex-direction:column;gap:6px}
+  .tl{padding-left:16px}
+  .tl li::before{left:-20px}
+  .tl li.last::before{left:-22px}
+}
+@media (hover:none){
+  .entry:hover{background:none}
+  .entry:hover h2{color:inherit}
+  .entry:active h2{color:var(--indigo)}
+}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+
+<div class="wrap">
+  <header class="mast" id="mast">
+    <p class="eyebrow">বাঁকুড়া · সাহিত্য · স্মৃতি</p>
+    <h1>সুশান্ত কুণ্ডু</h1>
+    <p class="vow">দারিদ্র্যের কারণে বা প্রলোভনের কাছে নতি স্বীকার করে নৈতিকতাকে বিসর্জন দিইনি কখনো, কোনদিন কারো ক্ষতি করিনি — আজীবন এইভাবেই চলবে। এটাই আমার জীবনের ব্রত।</p>
+    <hr class="rule double">
+  </header>
+
+  <nav class="bar" id="bar">
+    <div class="chips" id="chips"></div>
+    <div class="tools">
+      <div class="search"><input id="q" type="search" placeholder="লেখা খুঁজুন" aria-label="লেখা খুঁজুন"></div>
+      <button class="icb" id="fsdn" aria-label="হরফ ছোট করুন">ক&minus;</button>
+      <button class="icb" id="fsup" aria-label="হরফ বড় করুন">ক&plus;</button>
+      <button class="icb" id="theme" aria-label="দিন বা রাত">রাত</button>
+    </div>
+  </nav>
+
+  <main id="view"></main>
+
+  <footer>
+    <span id="foot-count"></span>
+    <span><button id="about-link">পরিচয়</button> · <button id="home-link">সব লেখা</button></span>
+  </footer>
+</div>
+
+<button id="up" aria-label="উপরে ফিরে যান">উপরে</button>
+<div id="lb" role="dialog" aria-label="ছবি"><button class="x" aria-label="বন্ধ করুন">বন্ধ</button><img alt=""></div>
+
+<script>
+(function(){
+"use strict";
+
+/* ───────────── Bengali helpers ───────────── */
+var BN = ['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
+function bn(n){ return String(n).replace(/[0-9]/g, function(d){ return BN[+d]; }); }
+var MONTHS = ['জানুয়ারি','ফেব্রুয়ারি','মার্চ','এপ্রিল','মে','জুন','জুলাই','আগস্ট','সেপ্টেম্বর','অক্টোবর','নভেম্বর','ডিসেম্বর'];
+function bnDate(iso){
+  var p = iso.split('-');
+  return bn(+p[2]) + ' ' + MONTHS[+p[1]-1] + ' ' + bn(p[0]);
+}
+function readTime(html){
+  var t = html.replace(/<[^>]+>/g,' ').trim().split(/\s+/).length;
+  return bn(Math.max(1, Math.round(t/180))) + ' মিনিট পাঠ';
+}
+function strip(html){ return html.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim(); }
+
+/* ───────────── images ───────────── */
+var B = 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/';
+var IMG = {
+  h1: B+'AVvXsEgFCkcWncLO3B-44UEbICRkPEhyFPFX8O7up88UIKVolENpxDVNUuL2CryTczEP14iZcMABZYo5CY9oDBBT1eCLSdlXIDPq0Q60XllTDzzd4gPrQMVxOMBSAHsWu9rVjKNqzWLKZOPO9wClTsi4iwHIeF7YhWFQOcwZPW_Vlp-F1OJIDRBe8S0lBJjq8qO-/s1226/WhatsApp%20Image%202025-03-30%20at%2011.34.48%20PM.jpeg',
+  h2: B+'AVvXsEhkAmB7MNYZut6hXNXf5mWHXCMYRBxB8Qfshdjml1sRAWpJONyybaZhAsje8pEZJr2DtuEywcM5hPo22ATpv1pYP4NthQoSu9gvrnAkvFWfbard2_cyixjOrZutgajlK8ddUqvbgI7Rc8bNcu61uYalYhayJBjrxZynWsrCdtZ64PEVLVgFjJjoDB6T0kTM/s1280/WhatsApp%20Image%202025-03-30%20at%2011.36.44%20PM.jpeg',
+  h3: B+'AVvXsEgD-_27uXQpqDA3V45Y5gz9CJMWPVSE06xzMIp_37vPEGTysTHVR0yqWs4XgpsJOZ1JgAWXZScTjiRZZTHQsfhOKFwcxxR8-xii09ZfKN_SqYb4ibiODZggOnEtiZL0oAlEGS5GX4ahfTIUGjlFWHVxzojwFGnIio0xu5p5Tr2pue5jBXGIs9-cmOB-p-11/s1127/WhatsApp%20Image%202025-03-30%20at%2011.37.18%20PM.jpeg',
+  h4: B+'AVvXsEjXCmyHVJzTBXhzLh88phtPTpxj3ZNeXRkleBDrdB-LzuB5IVjZhjErSS7P6jTCLOgker1wsaXRyeLsorGAtr5_yTDt6gP4FF1wP1fLbCgPXGsYfDzCBk7qANTgzYznG0zbBhS0Yw-WmFAoUSiySx7tSJ_9zw0cwsOL3e8N2Z6K-d8eAWzNcGacNCdBXmNX/s960/WhatsApp%20Image%202025-03-30%20at%2011.37.52%20PM.jpeg',
+  h5: B+'AVvXsEiQ6q2h68LhzBIccCUAV2NzfG3GQTxrJAN_kiqgSLnKJwogPiXykX53_tZ1vfQ-R6BPcdYhx0sMJLz9awYZU5KsNeXSy-LTlRIB0kdT7ydJf-dxSqDPXgyz_20zCow5rxgd1wHZmn9q3gSbCoYIFys_t_FVh39ygtKz6gxHH793mi5cfF-s9EP1pjDzvu5C/s960/WhatsApp%20Image%202025-03-30%20at%2011.38.32%20PM.jpeg',
+  abp: B+'AVvXsEgDqpJeiXoCZ_n3aTgz4IulnhmxdlfA8Xu_cywHVb5Dzu1FvP9aO34nR17pbcM8K1_jWmMjXsJqCKLo04of4OWwtdh7AM-mgCfG8VYk3jS9zo5XlP7X-dNxJDNmFe57UtbfOxg68TGdhMuxTR87Kk3EoOFsDX1E72eCmiRu60vC__wLrwhLWdCB3jH7ut6H/s1080/WhatsApp%20Image%202025-03-30%20at%2011.16.41%20PM%20(1).jpeg',
+  me: B+'AVvXsEj-UrG6jdkzBqTYgQQP_ZEd_w5Ow1xLkutDbWW9wmtgyGd81MsFGDtSvF4UMLV5L_pazWV76k8BLW85W73qX1vwnYWJHu-TzydeoemgZvgMPsDrPGt4F24IFimx8mnTs3dFu9HaQ0x8wPnxbra_FF8TpP0BSL6BBh7AYRHmWBJk5eh47uE/s220/WhatsApp%20Image%202025-03-15%20at%2012.08.16%20AM.jpeg'
+};
+
+/* ───────────── স্বজনহারার তালিকা ───────────── */
+var TL = [
+  ['১৮৬৪','বুধেন্দ্রনাথ ঠাকুর — এক বছর বয়সে'],
+  ['১৮৬৪','সুকুমারী দেবী (সেজদি), হেমেন্দ্রনাথ মুখোপাধ্যায়ের স্ত্রী'],
+  ['১৮৭৫ · ১০ মার্চ','মা সারদা দেবী'],
+  ['১৮৭৯','কবীন্দ্রনাথ — সত্যেন্দ্রনাথ ঠাকুরের ছোট ছেলে, মাত্র চার বছর বয়সে'],
+  ['১৮৮১','গুনেন্দ্রনাথ ঠাকুর (ভ্রাতুষ্পুত্র)'],
+  ['১৮৮৩ · ৯ ডিসেম্বর','সারদাপ্রসাদ গঙ্গোপাধ্যায় — সৌদামিনীর স্বামী, কবির জামাইবাবু'],
+  ['১৮৮৪ · ১৯ এপ্রিল','কাদম্বরী দেবী — ‘তোমারেই করিয়াছি জীবনের ধ্রুবতারা’'],
+  ['১৮৮৪ · ১২ জুন','সেজ দাদা হেমেন্দ্রনাথ ঠাকুর'],
+  ['১৮৯৪ · ২৪ মে','বিহারীলাল চক্রবর্তী — আদর্শ কবি'],
+  ['১৮৯৫','অভিজ্ঞা চট্টোপাধ্যায় (ভ্রাতুষ্পুত্রী)'],
+  ['১৮৯৭','সতীশচন্দ্র মুখোপাধ্যায় (ভগ্নিপতি), ছোড়দি বর্ণকুমারীর স্বামী'],
+  ['১৮৯৯','উষাবতী চট্টোপাধ্যায় (ভ্রাতুষ্পুত্রী)'],
+  ['১৮৯৯','বলেন্দ্রনাথ ঠাকুর (ভ্রাতুষ্পুত্র) — যক্ষ্মায়'],
+  ['১৯০১','নীতীন্দ্রনাথ ঠাকুর (ভ্রাতুষ্পুত্র)'],
+  ['১৯০২ · ২৩ সেপ্টেম্বর','মৃণালিনী দেবী — কবিপত্নী'],
+  ['১৯০৩','বিমানেন্দ্রনাথ রায় (মামাতো ভাই)'],
+  ['১৯০৩ · ১৯ সেপ্টেম্বর','মেজ মেয়ে রেণুকা ভট্টাচার্য — যক্ষ্মায়'],
+  ['১৯০৫ · ১৯ জানুয়ারি','পিতা মহর্ষি দেবেন্দ্রনাথ ঠাকুর'],
+  ['১৯০৭ · ৭ অগ্রহায়ণ ১৩১৪','শমীন্দ্রনাথ ঠাকুর — ছোট ছেলে, কলেরায়'],
+  ['১৯০৮','সত্যেন্দ্রনাথ ভট্টাচার্য (জামাতা), রেণুকার স্বামী'],
+  ['১৯০৮','হিতেন্দ্রনাথ ঠাকুর (ভ্রাতুষ্পুত্র)'],
+  ['১৯১০','লীলাময়ী ঠাকুর (বৌদি) — মৃণালিনীর শিক্ষিকা'],
+  ['১৯১৩','জানকীনাথ ঘোষাল (ভগ্নিপতি), ‘ভারতী’-র সম্পাদক'],
+  ['১৯১৫','বীরেন্দ্রনাথ ঠাকুর (দাদা)'],
+  ['১৯১৬','শান্তা বন্দ্যোপাধ্যায় (ভাগ্নের মেয়ে)'],
+  ['১৯১৮','ইরাবতী মুখোপাধ্যায় (ভাগ্নি) — বাল্যসাথী'],
+  ['১৯১৮ · ১৬ মে','মাধুরীলতা চক্রবর্তী — বড় মেয়ে, যক্ষ্মায়'],
+  ['১৯১৯','জ্যোতিপ্রকাশ গঙ্গোপাধ্যায় — শৈশবে কবিতার দীক্ষাদাতা'],
+  ['১৯১৯','সুকেশী ঠাকুর (ভ্রাতুষ্পুত্রের স্ত্রী)'],
+  ['১৯২০','শরৎকুমারী মুখোপাধ্যায় (দিদি)'],
+  ['১৯২০','সৌদামিনী গঙ্গোপাধ্যায় (দিদি)'],
+  ['১৯২২','তিভা সুন্দরী চৌধুরী (ভাগ্নি)'],
+  ['১৯২২','সোমেন্দ্রনাথ ঠাকুর (দাদা)'],
+  ['১৯২৩','সত্যেন্দ্রনাথ ঠাকুর (দাদা) — কলকাতার প্রথম আই.সি.এস'],
+  ['১৯২৪','আশুতোষ চৌধুরী — বন্ধু তথা ভাগ্নির স্বামী'],
+  ['১৯২৪','বিনয়িনী চট্টোপাধ্যায় (বেয়ান) — প্রতিমার মা'],
+  ['১৯২৫','হিরন্ময়ী মুখোপাধ্যায় (ভ্রাতুষ্পুত্রী)'],
+  ['১৯২৫ · ৪ মার্চ','জ্যোতিরিন্দ্রনাথ ঠাকুর — নতুন দাদা, রাঁচীতে'],
+  ['১৯২৬ · ২৬ জানুয়ারি','দ্বিজেন্দ্রনাথ ঠাকুর — বড় দাদা, শান্তিনিকেতনে'],
+  ['১৯২৯','অরুণেন্দ্রনাথ ঠাকুর (ভ্রাতুষ্পুত্র)'],
+  ['১৯২৯','মণিলাল গঙ্গোপাধ্যায় — অবনীন্দ্রনাথের জামাতা'],
+  ['১৯২৯','সুধীন্দ্রনাথ ঠাকুর (ভ্রাতুষ্পুত্র)'],
+  ['১৯৩২ · ৩ জুলাই','স্বর্ণকুমারী দেবী (দিদি) — বাংলা সাহিত্যের প্রথম মহিলা ঔপন্যাসিক'],
+  ['১৯৩২ · ২২ শ্রাবণ ১৩৩৯','নীতিন্দ্রনাথ গঙ্গোপাধ্যায় — দৌহিত্র, জার্মানিতে যক্ষ্মায়'],
+  ['১৯৩৩','সত্যপ্রসাদ গঙ্গোপাধ্যায় (ভাগ্নে)'],
+  ['১৯৩৫','কৃতীন্দ্রনাথ ঠাকুর (ভ্রাতুষ্পুত্র)'],
+  ['১৯৩৫','দিনেন্দ্রনাথ ঠাকুর (ভ্রাতুষ্পুত্র)'],
+  ['১৯৩৭','ক্ষিতীন্দ্রনাথ ঠাকুর (ভ্রাতুষ্পুত্র)'],
+  ['১৯৩৮','গগনেন্দ্রনাথ ঠাকুর (কাকার ছেলে)'],
+  ['১৯৪০','সুরেন্দ্রনাথ ঠাকুর (ভ্রাতুষ্পুত্র)'],
+  ['১৯৪১ · ২২ শ্রাবণ ১৩৪৮','রবীন্দ্রনাথ ঠাকুর']
+];
+function tlHTML(){
+  return '<ul class="tl">' + TL.map(function(r,i){
+    return '<li'+(i===TL.length-1?' class="last"':'')+'><span class="y">'+r[0]+'</span>'+r[1]+'</li>';
+  }).join('') + '</ul>';
+}
+
+/* ───────────── posts ───────────── */
+var POSTS = [
+{
+  slug:'haimanti-sampadakiya', kind:'সম্পাদকীয়', date:'2025-03-30',
+  title:'হৈমন্তী পত্রিকার সম্পাদকীয়',
+  sub:'৩৭ জন লেখক-লেখিকার নাম গেঁথে লেখা',
+  cover:IMG.h1,
+  body:
+    '<p class="lead">বাঁকুড়া-১ স্টাফ রিক্রিয়েশন ক্লাব প্রকাশিত <strong>হৈমন্তী</strong> পত্রিকায় ৩৭ জন লেখক-লেখিকার নামের শব্দ ব্যবহার করে এই সম্পাদকীয়টি লেখা। প্রত্যেক লেখক-লেখিকার নাম এই প্রতিবেদনের মধ্যে রাখার চেষ্টা করেছি।</p>'+
+    '<figure><img loading="lazy" src="'+IMG.h1+'" alt="হৈমন্তী পত্রিকার পাতা ১"><figcaption>হৈমন্তী · পাতা ১</figcaption></figure>'+
+    '<figure><img loading="lazy" src="'+IMG.h2+'" alt="হৈমন্তী পত্রিকার পাতা ২"><figcaption>হৈমন্তী · পাতা ২</figcaption></figure>'+
+    '<figure><img loading="lazy" src="'+IMG.h3+'" alt="হৈমন্তী পত্রিকার পাতা ৩"><figcaption>হৈমন্তী · পাতা ৩</figcaption></figure>'+
+    '<figure><img loading="lazy" src="'+IMG.h4+'" alt="হৈমন্তী পত্রিকার পাতা ৪"><figcaption>হৈমন্তী · পাতা ৪</figcaption></figure>'+
+    '<figure><img loading="lazy" src="'+IMG.h5+'" alt="হৈমন্তী পত্রিকার পাতা ৫"><figcaption>হৈমন্তী · পাতা ৫</figcaption></figure>'
+},
+{
+  slug:'anandabazar-2019', kind:'সংবাদপত্রে', date:'2025-03-30',
+  title:'আনন্দবাজার পত্রিকায় প্রকাশিত প্রতিবেদন',
+  sub:'১৩ মে, ২০১৯',
+  cover:IMG.abp,
+  body:
+    '<p class="lead">আনন্দবাজার পত্রিকায় ১৩ই মে, ২০১৯ সালে প্রকাশিত এই প্রতিবেদন।</p>'+
+    '<figure><img loading="lazy" src="'+IMG.abp+'" alt="আনন্দবাজার পত্রিকার প্রতিবেদন"><figcaption>আনন্দবাজার পত্রিকা · ১৩ মে ২০১৯</figcaption></figure>'
+},
+{
+  slug:'baishe-srabon', kind:'প্রবন্ধ', date:'2025-03-14',
+  title:"রবীন্দ্রনাথের চোখে ‘বাইশে শ্রাবণ’",
+  sub:'', author:'সুশান্ত কুণ্ডু',
+  body:
+    '<div class="verse">বাহির হইতে দেখো না এমন করে,\nআমায় দেখো না বাহিরে\nআমায় পাবে না আমার দুখে ও সুখে\nআমার বেদনা খুঁজো না আমার বুকে\nআমায় দেখিতে পাবে না আমার মুখে,\nকবিরে খুঁজিছ যেথায় সেথা সে নাহিরে…</div>'+
+
+    '<p class="lead">জীবন-মরণের সীমানায় বিশ্বকবিকে কোথাও খুঁজে পাওয়া যাবে না — পঁচিশে বৈশাখেও না, বাইশে শ্রাবণেও না, কোথাও না। এই কবিসম্রাট রবীন্দ্রনাথ, যিনি ২২-শে শ্রাবণ দেখলেন ১৩৪৮-এ, দেখলেন ১৯৪১-এর ৭-ই আগস্ট দুপুর ১২.১০-এ। এই মৃত্যু-রূপী ‘বাইশে শ্রাবণ’ রবীন্দ্রজীবনে বারবার এসেছে; প্রায় পঞ্চাশজন স্বজনহারার কষ্ট কবিকে করেছে ক্ষতবিক্ষত। এই মৃত্যুশোক-সমৃদ্ধ ২২-শে শ্রাবণ যতই জারিত করেছে, ততই চির-নতুনের ডাকে বারবার সৃষ্টি করেছে — জর্জরিত করেছে কখনো শমীন্দ্রনাথের মৃত্যুর মধ্য দিয়ে, কখনো মৃণালিনী, কখনো নতুন বৌঠানের আত্মবিসর্জনের মধ্য দিয়ে। কান পাতলে শোনা যায় অব্যক্ত আর্তনাদ, মৃত্যুর স্পর্ধিত ভাষা — যেটা অনুভব করা যায় তাঁর লেখায়, ভাবের মধ্য দিয়ে, যেখানে তিনি লিখেছেন — <strong>‘মরণ বলে, আমি তোমার জীবন তরী বাই’</strong>।</p>'+
+
+    '<p>রবি যখন মাত্র তিন বছরের শিশু, পেল সে একটি ছোট্ট ভাই — বুধেন্দ্রনাথ। কিন্তু না, এক বছর যেতে না যেতেই, কবির জ্ঞান হওয়ার আগেই ১৮৬৪-র কোনও একদিন শিশু রবির সামনে এল প্রথম ‘বাইশে শ্রাবণ’। সমসাময়িক সময়ে, তখনো কোনও জ্ঞান হয়নি, হারালেন সেজদিদি সুকুমারী দেবীকেও।</p>'+
+
+    '<p>ভৃত্যরাজক ঘেরাটোপে বেড়ে ওঠা রবীন্দ্রনাথ সেরকমভাবে বাবা-মায়ের স্নেহ-ভালোবাসা খুব একটা পাননি। ‘জীবনস্মৃতি’-র মৃত্যুশোক পর্বে রবীন্দ্রনাথ লিখেছেন —</p>'+
+    '<div class="quote">‘‘যে রাত্রিতে তাঁহার (মা) মৃত্যু হয় আমরা তখন ঘুমাইতেছিলাম। প্রভাতে উঠিয়া যখন মার মৃত্যু সংবাদ শুনিলাম তখনো সে কথাটার অর্থ সম্পূর্ণ গ্রহণ করিতে পারিলাম না।’’</div>'+
+
+    '<p>১২৮২ সালের ৭ই অগ্রহায়ণ রবির মা সারদা দেবীর মৃত্যুর অনুভূতিতে লিখেছেন —</p>'+
+    '<div class="quote">‘‘…আমরা তাহার পশ্চাৎ পশ্চাৎ শ্মশানে চলিলাম, তখনি শোকের সমস্ত ঝড় যেন একেবারে একদমকায় আসিয়া মনের ভিতরটাতে এই একটা হাহাকার তুলিয়া দিল যে, এই বাড়ির এই দরজা দিয়া মা আর একদিনও তাহার নিজের এই চিরজীবনের ঘরকরনার মধ্যে আপনার আসনটিতে আসিয়া বসিবেন না।’’</div>'+
+
+    '<p>মাত্র ১৬ বছর বয়সে কবি ব্রজবুলি ভাষায় লিখলেন ‘‘ভানুসিংহ ঠাকুরের পদাবলী’’, যেখানে ‘মরণ’ কবিতায় বলেছেন —</p>'+
+    '<div class="verse">মরণ রে, শ্যাম তোঁহারই নাম\nচির বিসরল যব নিরদয় মাধব\nতুঁহু ন ভইবি মোয় বাম\nআকুল রাধা রিঝ অতি জরজর…</div>'+
+    '<p>যেখানে বলা যায় — মরণ শ্যামের মতো উদার, প্রেমিকের মতো বন্ধু, যিনি বিরহাতুর রাধার পথপ্রদর্শক। মাত্র ষোল বছর বয়সে রবীন্দ্রনাথ মরণ নিয়ে যে ভাবনার প্রবাহ অনুভব করেছেন, সেই ‘বাইশে শ্রাবণ’-এর স্বজনহারার ধারা কিন্তু আর থামেনি। সেভাবেই ১৮৭৯ সালে মেজদা সত্যেন্দ্রনাথের ছোট ছেলে কবীন্দ্রনাথ মাত্র চার বছর বয়সে, ও ভ্রাতুষ্পুত্র গুনেন্দ্রনাথ ১৮৮১ সালের কোনও একদিন পাড়ি দিলেন ‘বাইশে শ্রাবণের’ দেশে।</p>'+
+
+    '<p>দিনটা ছিল ১৮৮৩-র ৯-ই ডিসেম্বর। বধূরূপে ঠাকুরবাড়িতে এলেন রবীন্দ্রনাথের পত্নী হয়ে ‘মৃণালিনী দেবী’। নির্মম পরিহাস — ঐ বিয়ের দিনেও কবির সাথী ‘বাইশে শ্রাবণ’; রবির জামাইবাবু, বড়দি সৌদামিনীর স্বামী সারদাপ্রসাদ গঙ্গোপাধ্যায় শিলাইদহে ইহলোক ত্যাগ করলেন।</p>'+
+
+    '<p>‘তোমারেই করিয়াছি জীবনের ধ্রুবতারা’ লাইনটি যাঁকে উদ্দেশ্য করে লেখা, সেই ‘শ্রীমতী হে’ — কবির বাল্যকালের সাথী কাদম্বরী দেবীর ‘বাইশে শ্রাবণ’ দেখতে হল রবীন্দ্রনাথ ঠাকুরকে, কবির বিয়ের চার মাসের মধ্যে। নতুন বৌঠান আত্মবিসর্জন দিলেন ১৮৮৪ সালের ১৯শে এপ্রিল, মতান্তরে ২২-শে এপ্রিলের মধ্যে। মৃত্যুর অন্ধকারই যে কবিকে নিরন্তর আলোকিত করে রাখে, সেই সত্য বারবার কবির লেখার মধ্য দিয়ে দেখতে পাওয়া যায়। কবি ‘‘জীবনস্মৃতি’’-তে লিখলেন — ‘‘কিন্তু আমার চব্বিশ বছর বয়সের মৃত্যুর সঙ্গে যে পরিচয় হইল, তাহা স্থায়ী পরিচয়।’’ এইভাবেই কাদম্বরীর মৃত্যুশোক স্থায়ীভাবে কবির মনে গাঁথা হয়ে যায়।</p>'+
+
+    '<p>১৩০১ সালের ৫-ই বৈশাখ কবি লিখলেন একটি বিশেষ কবিতা — ‘মৃত্যুর পরে’। যদিও কার উদ্দেশ্যে রচিত, তা গবেষণার বিষয় —</p>'+
+    '<div class="verse">আজিকে হয়েছে শান্তি, জীবনের ভুলভ্রান্তি সব গেছে চুকে,\nরাত্রিদিন ধুক্‌ ধুক্‌ তরঙ্গিত দুঃখসুখ থামিয়াছে বুকে,\nযত কিছু ভালোমন্দ, যত কিছু দ্বিধাদ্বন্দ্ব কিছু আর নাই।\nবলো শান্তি, বলো শান্তি, দেহসাথে সব ক্লান্তি হয়ে যাক ছাই।</div>'+
+
+    '<p>১৮৯৪-র ২৪-শে মে সকালে কবির জীবনে বাইশে শ্রাবণ দেখা দিল ‘ভোরের পাখির’ প্রয়াণে। যে আদর্শ কবি বিহারীলাল চক্রবর্তী ছিলেন কবির লেখার জীবনের প্রেরণা, যাঁর মৃত্যুর পর সুপ্তগুণ নিয়ে কবি বলেছিলেন —</p>'+
+    '<div class="quote">‘‘বিহারীলালের কণ্ঠ সাধারণের নিকট তেমন সুপরিচিত ছিল না। …তাহার সুমধুর সংগীত নির্জনে নিভৃতে ধ্বনিত হইতে থাকিত, খ্যাতির প্রার্থনায় পাঠক এবং সমালোচক-সমাজের দ্বারবর্তী হইত না। কিন্তু যাহারা দৈবক্রমে এই বিজনবাসী ভাবনিমগ্ন কবির সংগীত-কাকলিতে আকৃষ্ট হইয়া তাহার কাছে আসিয়াছিল তাহাদের নিকটে তাঁহার আদরের অভাব ছিল না। তাহারা তাহাকে বঙ্গের শ্রেষ্ঠ কবি বলিয়া জানিত।’’</div>'+
+
+    '<p>১৮৯৫ থেকে ১৮৯৯-এ নিকটাত্মীয় কয়েকজনের মৃত্যুমিছিলের পর ১৯০০ সালের নভেম্বরে কলকাতা থেকে স্ত্রী মৃণালিনীকে লিখেছিলেন — ‘‘বেঁচে থাকতে গেলেই মৃত্যু কতবার আমাদের দ্বারে এসে কত জায়গায় আঘাত করবে — মৃত্যুর চেয়ে নিশ্চিত ঘটনা তো নেই। শোকের বিপদের মুখে ঈশ্বরকে প্রত্যক্ষ বন্ধু জেনে যদি নির্ভর করতে না শেখো, তাহলে তোমার শোকের অন্ত নেই।’’</p>'+
+
+    '<p>হয়তো শিখতে পারলেন না ‘মৃণালিনী দেবী’। ১৯০২ সালের ২৩-শে সেপ্টেম্বর, ‘‘দুয়ারটুকু পার’’ হলেন নিঃসংশয়ে। কবি বলেছিলেন — ‘‘আজিকে তুমি ঘুমাও, আমি জাগিয়া রব দুয়ারে / রাখিব জ্বালি আলো।’’ কিন্তু না, কবি তাঁর কাছে শেষ নিবেদনে বলেন — ‘‘হে কল্যাণী, গেলে যদি গেলে মোর আগে / মোর লাগি কোথাও কি দুটি স্নিগ্ধ করে / রাখিবে পাতিয়া শয্যা চিরসন্ধ্যা-তরে?’’ যেখানে কবির বাইশে শ্রাবণের জন্য পেতে রাখা শয্যায় অপেক্ষা করবে ‘ছুটি’।</p>'+
+
+    '<p>এরপরে নিকট দু-একজনের চিরবিদায়ের পর ১৯০৫ সালে কবির পিতা মহর্ষি দেবেন্দ্রনাথ ঠাকুরের ‘‘বাইশে শ্রাবণ’’ — যাঁর কাছে কবি ব্রহ্মদর্শনে দীক্ষিত হয়ে জীবন ও মৃত্যু নিয়ে তাঁর নিজের একটা ধারণা গড়ে উঠেছিল; জীবনের মধ্যে থেকে মৃত্যুকে, দুঃখকে সহজে বরণ করার কথা বারবার বলেছেন।</p>'+
+
+    '<p>১৯০৭ সালে কবির ছোট ছেলে, সবচেয়ে আদরের সন্তান শমী ঠাকুরের অকালমৃত্যু কবিকে করেছিল বাকরুদ্ধ। কবিতায় তাঁর দুঃখের স্রোত বেরিয়ে এল — ‘‘বিজু যখন চলে গেল মরণপারের দেশে / বাপের বাহু-বাঁধন কেটে / মনে হল, আমার ঘরের সকাল যেন মরেছে বুক ফেটে।’’ এ কবিতা পড়ে কার না বুক ফাটে।</p>'+
+
+    '<p>১৯০৮ সালে বিপত্নীক জামাতা, কবির মেয়ে রেণুকার স্বামী সত্যেন্দ্রনাথ ভট্টাচার্যের সাথে কবি নিজে বিয়ে দেন ছায়ার। সেখানেও বীভৎস পরিহাস — ঐ বিয়ের তিন মাস পরেই বিধবা হলেন ছায়া। মৃত্যুমিছিলে ক্ষতবিক্ষত, বিধ্বস্ত, জর্জরিত এই বাউল মানুষটির মনের অবস্থা অনুভব করেছেন ক-জন?</p>'+
+
+    '<p>১৯১০ সাল থেকে ১৯১৮ সাল — লাগাতার স্বজনদের মৃত্যু বিধ্বস্ত করেছিল। বিশেষ করে কবির বড় মেয়ে মাধুরীলতা, যাঁর সাথে রবীন্দ্রনাথ ঠাকুর বিয়ে দিয়েছিলেন কবি বিহারীলাল চক্রবর্তীর ছেলে শরৎচন্দ্র চক্রবর্তীর, সুস্থ সাংস্কৃতিক পরিবেশ পাওয়ার আশায়। যদিও মেয়ের জীবন সুখকর হয়নি; সেই মাধুরীলতাও পিছু নিলেন ‘বাইশে শ্রাবণে’-র পথে ১৯১৮-তে।</p>'+
+
+    '<p>১৯১৯ সাল থেকে আবার কবির সাথী ‘বাইশে শ্রাবণ’। অবশেষে ১৩৩৯ বঙ্গাব্দের বাইশে শ্রাবণ তথা ১৯৩২-এর ৭-ই আগস্টের দিনটিও নিজের জন্য খোদিত হয়ে রইল, ভবিষ্যতে কবির মহাপ্রয়াণের ইতিহাস রচনার জন্য — কবি শুনলেন, ঠিক ঐ দিন কনিষ্ঠ মেয়ে মীরার পুত্র নীতিন্দ্রনাথ গঙ্গোপাধ্যায় যক্ষ্মারোগে জার্মানিতে মৃত্যুশয্যায় ঘুমিয়ে পড়েছে।</p>'+
+
+    '<p>১৯৩২ থেকে একে একে আরও কয়েকজন স্বজনের ‘বাইশে শ্রাবণ’-এর বিধ্বস্ত প্রয়াণে কবিকে অস্থির করতে পারেনি। প্রিয়জনের বিয়োগব্যথায় আমরা এতটাই বিহ্বল হয়ে থাকি বলেই নিজেদের জীবনের সীমানায় মৃত্যুর সৌন্দর্যটুকু হয়তো অনুভব করতে পারি না, যেটা কবি পেরেছিলেন। তাই কবি ১৮৯২-এ ‘‘প্রতীক্ষা’’ কবিতায় মৃত্যু নিয়ে লিখেছেন —</p>'+
+    '<div class="verse">ওরে মৃত্যু, জানি তুই আমার বক্ষের মাঝে\n        বেঁধেছিস বাসা,\nযেখানে নির্জন কুঞ্জে ফুটে আছে যত মোর\n        স্নেহ ভালোবাসা।</div>'+
+
+    '<p>১৯৪০ সালে স্নেহের ভ্রাতুষ্পুত্র সুরেন্দ্রনাথ ঠাকুরকে শেষবিদায় জানিয়ে কবি তাঁর নিজের ‘‘বাইশে শ্রাবণ’’-এর প্রস্তুতি শুরু করলেন — জীবনের শেষ কবিতা লিখে, জীবনদেবতার উদ্দেশ্যে সেই শেষ অর্ঘ্য —</p>'+
+    '<div class="verse">তোমার সৃষ্টির পথ রেখেছ আকীর্ণ করি\nবিচিত্র ছলনাজালে,\nহে ছলনাময়ী।\nমিথ্যা বিশ্বাসের ফাঁদ পেতেছ নিপুণ হাতে\nসরল জীবনে।\nএই প্রবঞ্চনা দিয়ে মহত্ত্বেরে করেছ চিহ্নিত;\nতার তরে রাখ নি গোপন রাত্রি।</div>'+
+
+    '<p>তারপরেও… বারবার আসে কবির চিরবিদায়ের বার্তা, অব্যক্ত যন্ত্রণার ‘‘বাইশে শ্রাবণ’’, প্রতি বছর। শ্রদ্ধায় মাথা নত হয়ে আসে, স্মরণে-স্মৃতিচারণে অশ্রুসজল পূর্ণ হয় নয়নে নয়নে — যদিও —</p>'+
+    '<div class="verse">নয়ন তোমারে পায় না দেখিতে\nরয়েছ নয়নে নয়নে।</div>'+
+
+    '<h3>রবীন্দ্রনাথ ঠাকুরের স্বজনহারাদের তালিকা</h3>'+
+    '<p style="color:var(--ink-faint);font-size:.9em;margin-bottom:0">১৮৬৪ থেকে ১৯৪১ — আটাত্তর বছরে একান্নটি বিদায়।</p>'+
+    tlHTML()+
+
+    '<div class="sources"><h4>সূত্র</h4><ol>'+
+    '<li>জীবনস্মৃতি — রবীন্দ্রনাথ ঠাকুর</li>'+
+    '<li>রবীন্দ্রজীবনী (১–৪) — প্রভাতকুমার মুখোপাধ্যায়</li>'+
+    '<li>সৈয়দ মুজতবা আলী রচনাবলী</li>'+
+    '</ol><p style="font-size:.85rem;color:var(--ink-faint);margin-top:14px">লেখক — বাঁকুড়া-১ নং ব্লক অফিসের বড়বাবু।</p></div>'
+},
+{
+  slug:'swadhinatar-pathe', kind:'অনুগল্প', date:'2025-03-14',
+  title:'স্বাধীনতার পথে',
+  sub:'একটি কল্পনায় গাঁথা অনুগল্প', author:'সুশান্ত কুণ্ডু',
+  body:
+    '<p class="lead">স্বাধীনতার পূর্বে ১৯৪৭-র মে মাসের প্রথম দিকের কোনো এক পড়ন্ত বিকেলে সাজগ্রামের কুণ্ডুদের এক সম্ভ্রান্ত জমিদার বাড়ির দুজন বৌমা কারুকাজ করা পেতলের কলসি নিয়ে প্রতিদিনের মতো বাড়ির জন্য অনতিদূরে দ্বারকেশ্বরের মাঝনদীতে বালি খুঁড়ে পানীয় জল আনতে গিয়ে যে মুহূর্তে নদীর ওপারে দুজন গোরা (ইংরেজ সাহেব)-কে চোখে পড়ে, সাথে সাথে ভয়ে কলসি ফেলে দিয়েই প্রাণপণে ছুটতে ছুটতে বাড়িতে ফিরে আসে। বাড়িতে বিষয়টি জানাতেই, দুজন কাজের লোককে পাঠিয়ে কলসি আনানোর ব্যবস্থা হয়।</p>'+
+
+    '<p>সেই রক্ষণশীল বাড়ির একটি ছোট্ট মিষ্টি সাদা ফুটফুটে মেয়ে, যে সকলের আদরের, বাড়ির বড় মেয়ে রানীর বিয়ে উপলক্ষ্যে সারা বাড়িতে আজ সাজ সাজ রব। কেউ ব্যস্ত ঘরের শ্রী-কে ফেরাতে, কেউ ব্যস্ত নিমন্ত্রণের বার্তা পৌঁছতে। পিতা তরণীবাবু সব দিকের ব্যবস্থা ভালো করে খতিয়ে দেখছেন যাতে সব কিছু সুন্দরভাবে সম্পন্ন হয়, মা-হারা এই অপরূপ কন্যার মনে এতটুকু যেন কোনও আক্ষেপ না থাকে। রাণীর দাদা মুক্তিপদ যদিও ভাই-বোনদের রাখেন কড়া শাসনে, তিনিও এই বোনের শাসনের লাগাম একটু একটু করে ছাড়ছেন — কেননা ঐটুকু বোন আজ ‘বড়’ হয়েছে, পরের বাড়িতে যাবে, অন্যের বাড়ি নিজের করে দায়িত্ব ঘাড়ে নিতে। বাড়ির পিসি, মাসি, মামা-মামী, সকলের এমনকি প্রতিবেশীদেরও রাণীর প্রতি একটা আস্থাপূর্ণ সমর্থন আছে এই জন্য যে সবাই জানে, ঐ ছোট্ট ফুটফুটে মেয়েটা শ্রদ্ধায় ভক্তিতে কর্মনিপুণতায় শ্বশুরবাড়ির সকলের মন জয় করে সংসারজীবনের যথাযথ দায়িত্বপালনের মাধ্যমে সুখী হবে।</p>'+
+
+    '<p>ফিরে যাই ১৯৩১-৩২ সালে। বিশাল রাজপ্রাসাদের মতো বাড়ি ছেড়ে অনতিদূরে দ্বারকেশ্বর নদীর ধারে নতুন করে এই বাড়ি বানাতে বাধ্য হন রানীর সরল মনের দাদু অলোকবাবু, যিনি প্রতিদিন সকালে ঘুম থেকে উঠে পাদোদক (ব্রাহ্মণের পায়ের-ছোঁয়া জল) খেয়ে দিন শুরু করতেন। যদিও এই অলোকবাবুর ছিল তাঁর একমাত্র দাদা গণেশবাবুর প্রতি অগাধ অন্ধ শ্রদ্ধা। দাদা গণেশবাবু দীর্ঘকায়, ধবধবে গায়ের রং, যাঁর হাতে থাকত একটা সুদৃশ্য লাঠি, হাতল কারুকার্যখচিত রূপার পাতে মোড়া — আক্ষরিক অর্থে সেকালের ‘‘বাবু’’-ই বলা যায় এই গণেশবাবুকে।</p>'+
+
+    '<p>১৯০০ সালের কাছাকাছি সময়কালে যুবক বয়সে তাঁদের চাষ-গ্রামে সাজা খাজনা, জমি-জমা বিষয়ে সম্পত্তির দেখাশোনার কাজে ঘোড়ায় চড়ে যেতেন গণেশবাবু। যাত্রা-নাটকের প্রতি বেশ আকর্ষণ ছিল, অভিনয়েও তিনি ছিলেন পারদর্শী। ১৯০৫ সালে এই সাজগ্রামে যাঁর প্রথম নাটক ‘‘লক্ষ্মণবর্জন’’। অভিনয় ছাড়াও রাত্রে পুরানো কুঠিবাড়িতে নিয়মিত বসত আসর, আসত বাইজি, থাকত সুরা — সে এক আভিজাত্যপূর্ণ বনেদিয়ানা জমিদারগিরি, যদি ধরে নেওয়া যায় এটাই আভিজাত্যের মাপকাঠি। সেই দাদা গণেশবাবুই ১৯৩১-৩২ সালে চাইলেন — ভাই অলোক যেন নিজের আলাদা বাড়ি করে নেয়।</p>'+
+
+    '<p>অনেক স্মৃতিবিজড়িত রাজপ্রাসাদের মতো তাঁদের বাড়ি ছেড়ে দাদার আদেশ শিরোধার্য করে চলে এলেন। অগত্যা বাড়ি বানানোর মূল উপকরণ ‘ইট’ তৈরির জন্য অনতিদূরেই মাঠে পাঁজা তৈরির কাজ শুরু হয়ে গেল। কাঁচা মাটি দিয়ে কাঠের ছাঁচে যখন সারি সারি ইট শুকানোর জন্য ফেলা হয়, দেখা যায় গভীর রাত্রে সেই কাঁচা ইট কেউ ভেঙে দিয়ে যাচ্ছে। বেশ মুশকিল — বাড়ি তৈরিতে কেউ বাধা দেওয়ার চেষ্টা করছে।</p>'+
+
+    '<p>উদার প্রকৃতির ধর্মপরায়ণ মানুষ অলোকবাবুর একমাত্র পুত্র ত্রিশোর্ধ্ব তরণীবাবু বিষয়টি হাতেনাতে ধরার জন্য গোপনে ঐ পাঁজার কাছেই একটি গাছের ডালের উপর উঠে সন্ধ্যা থেকেই লুকিয়ে বসে থাকলেন — ধরতেই হবে, কে আমাদের কাঁচা ইটগুলো রাত্রে ভেঙে দিয়ে যায়। রাত্রি একটু গভীর হতেই দেখেন দূর থেকে তিন-চারজন লোক এগিয়ে আসছে পাঁজার দিকে। কাছে এসে এক দীর্ঘকায় লোক বাকিদের নির্দেশ দেয় — এই কাঁচা ইটগুলো পরপর ভেঙে দে; পা দিয়ে দেখিয়ে বলে, এগুলোও ভেঙে দে, যেগুলো থাক দেওয়া আছে, সেগুলোও।</p>'+
+
+    '<p>তরণীবাবু অবাক হয়ে যান — গলার আওয়াজে বুঝতে পারেন তাঁরই নিজের জেঠামশায় গণেশবাবু লোকজন নিয়ে এসেছেন কাঁচা ইট ভাঙতে। এইসব কুকীর্তি দেখে গাছের উপর থেকেই রাগে-ক্ষোভে ফেটে পড়েন যুবক তরণীবাবু, হুঙ্কার দিয়ে বলেন — ‘জেঠু তুমি?’ সাথে সাথে জেঠু গণেশবাবু বেগতিক দেখে ধরা পড়ে যাওয়ার ভয়ে দৌড়তে শুরু করেন, লোকজনদের নিয়ে পালিয়ে সে-যাত্রায় কোনও রকমে বাঁচেন। এতেও কিন্তু অলোকবাবুর তাঁর দাদা গণেশবাবুর প্রতি শ্রদ্ধা এতটুকু কমেনি; পরের দিন থেকে ঐ পাঁজায় রাত্রে লাগদার (পাহারাদার) ব্যবস্থা করেন।</p>'+
+
+    '<p>একসময়ে কড়িবরগার একতলা বাড়িও তৈরি হয়। সেই বাড়িতেই আজ সাজ সাজ রব। বাড়ির বহুদিনের পুরাতন ভৃত্য বিপিন এখন প্রায় ৭০ বছরের ‘যুবক’ — এই বয়সেও তার কর্মক্ষমতার জন্য যুবকই। সবাই ডাকে ‘বিপনা’ নামে, শুনে ছোটরাও ডাকে ‘বিপনা’; ঐ ডাকের মধ্যেই শ্রদ্ধা-সম্মান-ভালোবাসা সযত্নে রক্ষিত। সকালে বাড়িতে কাজ শুরু করে, কিন্তু কখন যে শেষ হবে সেটা ঠিক হয় পরিস্থিতির উপরে — অনেকটা হোলটাইমারের মতো। আর সবচেয়ে বড় কথা, কাজের কোনও সিলেবাস বা জবচার্ট নেই। বিপনাকে কখনো দেখা যায় গোয়ালে বসে গরু-বলদের জন্য ছানি কাটছে, আবার কখনো চাষ-গাঁ থেকে সাজা-খাজনা দিতে আসা প্রজাদের সাথে হিসাব-নিকাশে, আবার কখনো বিয়েবাড়ি উপলক্ষ্যে সারা বাড়িময় কাঠের সিঁড়ি লাগিয়ে চুনকামে ব্যস্ত। ওর সব সময় একটা হৈ-রৈ ব্যাপার। এদের পারিশ্রমিক দিয়ে কাজের কোনো মূল্যায়ন করা যায় না। আন্তরিকতা, পরিবারের প্রতিটি মানুষের সাথে গভীর ভালোবাসায় এইরূপ সুদৃঢ় বন্ধনে প্রত্যেক বিপনারা আবদ্ধ।</p>'+
+
+    '<p>যার বিয়ে উপলক্ষ্যে এই এত সব আয়োজন, সেই রানীকে জন্মের পর থেকে কোলে-পিঠে করে বড় করেছে বিপিন। শুধু রানীকে নয়, বিপিন আসার পর এ বাড়ির প্রত্যেকের দায়-দায়িত্ব বিপনার কাঁধে। এই বাড়ি থেকে বিপনার নিজের বাড়ি হাফ-কিলোমিটারের মধ্যেই। এই পরিবারের ছোট-বড় এই চার-পাঁচজন সন্তানের মনে মাতৃহীনতার দুঃখকষ্ট স্পর্শ করার সুযোগ দেয়নি; সবসময় বিপনা তাদের বুকে আগলে রাখে, খুব মায়া জন্মে গেছে সকলের প্রতি। এই চার ভাই-বোনের মধ্যে বড়দা মুক্তিপদ, বড় বোন রানী, ছোট ভাই লক্ষণ, ছোট বোন সুপর্ণা। আর সবার বড়দা, যদিও পিসতুতো — অহিভূষণ সেন — একই সাথে বড় হয়। যখন তরণীবাবুর ছাতনার বড় বোনের পুত্রসন্তান হয় এই অহিভূষণ, জন্মের নয় মাসের মধ্যে বড় বোন মারা যান, অহিভূষণ মাতৃহারা হয়ে পড়েন। তরণীবাবু তিন মাসের ভাগ্নেকে বড় বোনের বাড়ি থেকে নিয়ে আসেন নিজের বাড়িতে। এরা তখন পাঁচজনে এত নিবিড়ভাবে বড় হতে থাকে যে এলাকার বেশিরভাগ মানুষ জানত তরণীবাবুর পাঁচ সন্তান। সম্পর্কে পিসতুতো নামেই — আসলে বড়দা অহিভূষণও খুব শান্ত, ভদ্র, নম্র ব্যবহারেও। আর দাদা মুক্তিপদ বাকি ছোট ভাই-বোনদের কড়া শাসনে রাখার চেষ্টা করেন; মুক্তিদাকে ভাই-বোনেরা ভয়ও করত খুব। শাসনের হুমকিতে সব সময় এদের একটা পরাধীন-পরাধীন ভাব সকলের মনে।</p>'+
+
+    '<p>এদিকে সত্তর বছরের তামাটে গায়ের বিপনা সারা বাড়ি চুনকাম করার কাজ করে যাচ্ছে। কাজের ফাঁকে রানীকে দেখতে পেয়ে বলে — ‘হবু জামাই তো উকলাতি করে শুনেছি’। দুধে-আলতায় গোলা গায়ের রং রানীকে বলে — ‘‘তোকে কনের সাজে খুব সুন্দর প্রতিমার মতো লাগবে, দেখবি’’। এই দু-এক কথা বলতে বলতে অসাবধানবশত সিঁড়িকাঠের উপর চুনকাম করতে করতে হঠাৎ বিপনা স্লিপ করে বেসামাল হয়ে সিঁড়িকাঠ নিয়ে চুনের বালতি-সহ দড়াম্‌ করে পড়ে নিচে। সবাই তখন চিৎকার-চেঁচামেচি শুরু করে দেয়, বিপনা সিঁড়িকাঠ থেকে পড়ে গেছে বলে সবাই ছুটে আসে। ধরাধরি করে বিপনাকে তুলে দাঁড় করাবার চেষ্টা করলে দেখে যে সে আর দাঁড়াতে পারছে না। ডান পায়ের ব্যথায় প্রচণ্ড চিৎকার করছে আর হাউমাউ করে কাঁদছে। বোঝা যাচ্ছে পায়ের হাড় ভেঙেছে।</p>'+
+
+    '<p>বয়স্ক দু-চারজনের সান্ত্বনা দেওয়ার চেষ্টা; কর্তা তরণীবাবুও ছুটে আসেন বিপনার কান্না শুনে। তরণীবাবু বলেন — ‘ঠিক আছে ঠিক আছে, অত কান্নার কী আছে, কোনো চিন্তা নেই, বিয়ের দিন তোর বাড়িতে রানীর বিয়ের ভোজ থালায় করে পাঠিয়ে দেব, কোনো চিন্তা নেই’। বিপনা শুধু একটি কথা দুঃখের সাথে কাঁদতে কাঁদতে রানীর মাথায় হাত বুলিয়ে বলে — ‘না দাদাবাবু, ভোজ খাওয়ার জন্য বলছি না, ঐ দিন রানী-মাকে আমি কনের সাজে দেখতে পাব না গো’ — এই বলে বিলাপ করতে থাকে। তারপর বিপনার পা গোকুলনগরের লোক বেঁধে দিয়ে যায়; বিপনা নিজের বাড়িতে বিছানাগত।</p>'+
+
+    '<p>এদিকে সকলের মন খারাপের মধ্যেও বিয়েবাড়ির প্রস্তুতি ধীরলয়ে চলতেই থাকে। বিয়ের দিন যত এগিয়ে আসে ব্যস্ততা সকলের বেড়ে যায় — বরযাত্রীদের আপ্যায়নে ত্রুটি রাখা চলবে না। জামাইয়ের ভগ্নিপতি কমলবাবু কলকাতার অফিসার বলে কথা; বিয়ের দিন আসবেন বলে জানিয়েছেন, কিন্তু বাঁকুড়া থেকে বিয়ের পরের দিন ভোরেই ট্রেনে কলকাতা ফিরে যাবেন বলেছেন।</p>'+
+
+    '<p>বিয়ের কাজ এগোলেও এইসবের মধ্যেই বাড়িতে মাঝেমধ্যে আক্ষেপের সুর ভেসে উঠছে — কেউ বলে বিপনা থাকলে কোনো চিন্তা করতে হত না, কেউ বলে বিপনা থাকলে ও একাই করত, এটা করত, সেটা করত। সত্যিই বিপনার অভাব বোঝা যাচ্ছে প্রতিপদে।</p>'+
+
+    '<p>বিয়ের দিন ভোরে সানাইয়ের সুর বেজে উঠতেই সকলের ব্যস্ততা। সকালে দাদা মুক্তির মুখোমুখি হতেই রাণীকে একটু ধমকের সুরে বলে ওঠে — ‘‘তাড়াতাড়ি গায়ে হলুদের কাজটি সকাল দশটার মধ্যে শেষ করবি, কেননা অনেক বাকি কাজ সারতে হবে সারাদিনে।’’ ‘ঠিক আছে দাদা’ বলে প্রস্তুতি শুরু করে দেয়। রাণীর মনে একটু ভাবনা আসে — বিয়ের পর থেকে আমার স্বাধীনভাবে জীবনযাত্রা শুরু হবে; আজ পর্যন্ত পরাধীন।</p>'+
+
+    '<p>বিকেল গড়িয়ে সন্ধ্যা, সন্ধ্যা গড়িয়ে রাত্রি। বিয়েও হয়ে গেল। রাত্রি প্রায় দুটো, সানাই থামলেও এর সুরের রেশ তখনও সকলের কানে। কনেযাত্রীরা — ‘খুব ভালো জামাই হয়েছে, ব্যবস্থাও খুব ভালো’ বলতে বলতে নিজ নিজ বাড়িতে ফিরে গেছে। বরযাত্রীরাও — ‘বৌ খুব ভালো হয়েছে, কনের সাজে কী সুন্দর লাগছে রানীকে’ — এইসব বলতে বলতে খাওয়াদাওয়া সেরে একটু গড়িয়ে নেওয়ার আপ্রাণ চেষ্টা। বাসরঘরে বরের সঙ্গে তামাশা করতে করতে বন্ধুরাও ঘুমিয়ে পড়েছে। দু-চারটে কুকুরের আনাগোনা, প্রায় নিঝুম চারদিক।</p>'+
+
+    '<p>হঠাৎ রাণী চুপিসারে ঐ গা-ভর্তি গয়না, বেনারসি শাড়ি, সিঁথিতে সিঁদুর, অপরূপ সুন্দর কনের সাজে একাই কাউকে না জানিয়ে চলল। কোথায় চলল? কোনো ভয় মনের মধ্যে একদম নেই। চলতে চলতে পৌঁছল বিপনাদের বাড়িতে — বাড়ি বলতে মাটির দেওয়াল, খড়ের ঝুপড়ি, দরজা বলতে আগড়। তা সরিয়ে ম্রিয়মাণ লণ্ঠনের আলোয় বিপনাকে ঘুম থেকে তুলে বলে — ‘‘এই বিপনা দেখ, আমি রানী, আমি এসেছি’’।</p>'+
+
+    '<p>এই ডাকে হঠাৎ বিপনার ঘুম ভাঙে। ঐ পা-বাঁধা অবস্থায় ধড়ফড় করে উঠে বসে — অন্ধকারে ‘কে কে’ বলে চিৎকার করে বিপনা। বলে — ‘‘আমি রানী’’। বিপনা লণ্ঠনের আলো একটু বাড়িয়ে রানীকে আশ্চর্য হয়ে দেখে; বিপনা অভিভূত হয়ে যায়। ঐ আবছা আলোয় অপূর্ব আলোর ছটায় সারা ঘর আলোময়, যেন প্রতিমা দর্শন করেছে। বিপনা নির্বাক হয়ে যায়। সামলে বলে — ‘‘রানী তুই? আমার কাছে? তোর সাথে কে এসেছে, কার সাথে?’’ রানী বলে — ‘আমি একাই এসেছি’।</p>'+
+
+    '<p>— সে কী? এত রাত্রে, অন্ধকার ঘুটঘুটে রাস্তাঘাট, কোনো জনপ্রাণী নেই, গা-ভর্তি গয়না! তোর আসার কী দরকার ছিল? তোর দাদা মুক্তিবাবু শুনলে একেবারে রেগে তোকে খুব ধমক দেবে, এই বলে দিলাম। কেন এসেছিস? রানী বলে — সেদিন তুই কাঁদতে কাঁদতে যে বলেছিলি, ‘‘রাণীর কনের সাজ আমি আর দেখতে পাব না গো বাবু’’ — তাই তোকে দেখাতে এসেছি। বিপিন বলে — এমনিই বলেছিলাম, সেটাও তুই মনে রেখেছিস…</p>'+
+
+    '<p>এদিকে জামাইয়ের ভগ্নিপতির ভোরের ট্রেনে কলকাতায় ফেরার কথা, তৈরিও; তাই শালাবাবু ও নতুন বৌঠানের সাথে দেখা করতে আসেন বাসরঘরে। দেখেন নতুন বৌঠান নেই। এ ঘরে সে ঘরে কোথাও দেখা নেই নতুন বৌঠানের। সবাই খুঁজতে শুরু করেছে সারা বাড়িতে, সে এক হুলুস্থুলু কাণ্ড — কনেকে কোথাও পাওয়া যাচ্ছে না। পাশের বাড়ি, বামুন ঘর, কামার ঘর — কোথাও নেই। কোথায় গেল? দেখতে দেখতে পাড়ার লোক সবাই একে একে জড়ো হয়েছে। সাথে সাথে মুক্তিদার মনে সন্দেহ জাগে — বলে ‘‘বিপনার বাড়িতেই গেছে’’। সাথে সাথে দু-চারজন গিয়ে খোঁজ নিতেই ঠিক পাওয়া গেল।</p>'+
+
+    '<p>ফিরে আসতেই রাণী দেখে যে সবাই উদ্‌গ্রীব হয়ে দাঁড়িয়ে আছে বাড়ির দরজায়। থমথমে পরিবেশ। মুক্তিদার কড়া ধমক — কোথায় গিয়েছিলি এত রাত্রে? রানী বলে — বিপিন সেদিন কাঁদতে কাঁদতে বলেছিল, আমার কনের সাজ দেখবে, তাই। কথা থামিয়ে সাথে সাথে মুক্তিদা কড়া সুরে কিছু বলতে যাচ্ছিলেন; নতুন জামাই শ্যামসুন্দর সমস্ত পরিস্থিতি অনুধাবন করে থামিয়ে বলেন —</p>'+
+    '<div class="callout">‘‘ঠিক আছে ঠিক আছে, এরপর আর কিছু বলার দরকার আছে কি? ওর মনের ইচ্ছা ছিল বিপিনবাবুকে কনের সাজ দেখানো, অন্যায় তো কিছু করেনি। একটা শয্যাশায়ী অসহায় ভালো মানুষের মনের সরল ইচ্ছাকে শ্রদ্ধা-সম্মান জানিয়েছে রানী, খুব ভালো করেছে। তবে একা না গিয়ে সাথে কেউ থাকলে ভালো হত।’’</div>'+
+
+    '<p>মুক্তিদার এত বড় একটা শাসনের আস্ফালন নিয়ে কিছু একটা কড়া ধমকের সুরকে পুরোপুরি ম্লান করে নতুন জামাই পরিস্থিতি পুরোপুরি বদলে দিলেন। পুরো থমথমে পরিবেশটা এক ঝটকায় বদলে গেল। একমনে শ্রদ্ধার সাথে বরের কথাগুলি অবাক হয়ে শুনে সদ্য স্বাধীন রাণীর মন-প্রাণ গভীর শ্রদ্ধায়, সদ্য ভালোবাসার সুতোয় বোনা আসনটি গহন মনের মণিকোঠায় সযত্নে পাতিয়া দিল।</p>'+
+
+    '<div class="verse">দুইটি হৃদয়ে একটি আসন, পাতিয়া বোসো হে হৃদয়নাথ,\nমঙ্গল করে মঙ্গল ডোরে, বাঁধিয়া রাখো হে দোঁহার হাত।</div>'+
+
+    '<p>রানী স্বামীর দিকে গভীর মুগ্ধতায় তাকিয়ে রইল। জীবনের সুদীর্ঘ যাত্রাপথের সদ্যপ্রাপ্ত পাথেয় যেন কয়েকটি শ্রদ্ধায়-ভালোবাসায় ভরা ফুলের কুঁড়ি সযত্নে তার আঁচলে রেখে দিল মনের মানুষটি।</p>'+
+    '<p style="text-align:center;color:var(--madder);margin-top:2.2em">— ০ —</p>'
+},
+{
+  slug:'kanika-bandyopadhyay', kind:'স্মরণ', date:'2025-02-05',
+  title:'কণিকা বন্দ্যোপাধ্যায়ের জন্মশতবার্ষিকী — ফিরে দেখা',
+  sub:'',
+  body:
+    '<p class="lead">১২-ই অক্টোবর ১৯২৪ সালে বাঁকুড়া জেলার সোনামুখীর কাছে চুয়ামসিনায় জন্মগ্রহণ করেন সত্যচরণ ও অনিলা দেবীর সন্তান অনিমা তথা কণিকা মুখোপাধ্যায়। বীরেন্দ্র বন্দ্যোপাধ্যায়ের সাথে বিয়ের পর মোহরদি হলেন কণিকা বন্দ্যোপাধ্যায়। রবীন্দ্রসংগীতের জগতে কণিকা বন্দ্যোপাধ্যায় একজন বিখ্যাত ব্যক্তিত্ব, আর নিজেই হয়ে উঠেছিলেন স্বয়ং একটি প্রতিষ্ঠান।</p>'
+},
+{
+  slug:'ekla-cholo', kind:'কবিতা', date:'2025-02-05',
+  title:'যদি তোর ডাক শুনে কেউ না আসে',
+  sub:'রবীন্দ্রনাথ ঠাকুর · গীতাঞ্জলি',
+  body:
+    '<div class="verse">যদি তোর ডাক শুনে কেউ না আসে তবে একলা চলো রে।\nএকলা চলো, একলা চলো, একলা চলো, একলা চলো রে।\n\nযদি কেউ কথা না কয়, ওরে ওরে ও অভাগা,\nযদি সবাই থাকে মুখ ফিরায়ে সবাই করে ভয় —\nতবে পরান খুলে\nও তুই মুখ ফুটে তোর মনের কথা একলা বলো রে।</div>'+
+    '<p>প্রতিকূলতার মুখে সাহস আর দৃঢ়তার কথা বলে এই গান। রবীন্দ্রনাথের সবচেয়ে প্রেরণাদায়ী রচনাগুলির একটি হয়ে আজও রয়ে গেছে।</p>'
+}
+];
+
+/* ───────────── state ───────────── */
+var KINDS = ['সব লেখা','প্রবন্ধ','অনুগল্প','কবিতা','স্মরণ','সম্পাদকীয়','সংবাদপত্রে'];
+var filter = 'সব লেখা', query = '';
+var view = document.getElementById('view');
+var mast = document.getElementById('mast');
+var bar  = document.getElementById('bar');
+
+/* ───────────── chips ───────────── */
+(function(){
+  var box = document.getElementById('chips');
+  KINDS.forEach(function(k){
+    var b = document.createElement('button');
+    b.className='chip'; b.textContent=k; b.setAttribute('aria-pressed', k===filter);
+    b.onclick = function(){
+      filter = k;
+      [].forEach.call(box.children,function(c){ c.setAttribute('aria-pressed', c.textContent===k); });
+      if(location.hash && location.hash!=='#/') location.hash='#/'; else renderHome();
+    };
+    box.appendChild(b);
+  });
+})();
+
+/* ───────────── render: home ───────────── */
+function renderHome(){
+  mast.style.display=''; bar.style.display='';
+  var q = query.trim();
+  var rows = POSTS.filter(function(p){
+    if(filter!=='সব লেখা' && p.kind!==filter) return false;
+    if(!q) return true;
+    return (p.title + ' ' + (p.sub||'') + ' ' + p.kind + ' ' + strip(p.body)).indexOf(q) > -1;
+  });
+
+  if(!rows.length){
+    view.innerHTML = '<div class="empty">এই খোঁজে কোনো লেখা মেলেনি। অন্য শব্দ দিয়ে দেখুন, বা ‘সব লেখা’ বেছে নিন।</div>';
+    document.getElementById('foot-count').textContent = '';
+    return;
+  }
+
+  view.innerHTML = '<div class="list">' + rows.map(function(p){
+    var ex = strip(p.body).slice(0,190);
+    return '<div class="entry" role="link" tabindex="0" data-slug="'+p.slug+'">'+
+      '<div class="when">'+bnDate(p.date)+'</div>'+
+      '<div class="body">'+
+        '<span class="kind">'+p.kind+'</span>'+
+        '<h2>'+p.title+'</h2>'+
+        (p.sub ? '<p class="ex" style="color:var(--ink-faint)">'+p.sub+'</p>' : '')+
+        '<p class="ex">'+ex+'…</p>'+
+        (p.cover ? '<img class="thumb" loading="lazy" src="'+p.cover+'" alt="">' : '')+
+        '<div class="tail"><span>'+readTime(p.body)+'</span><span>পড়ুন →</span></div>'+
+      '</div></div>';
+  }).join('') + '</div>';
+
+  document.getElementById('foot-count').textContent = bn(rows.length)+'টি লেখা · সর্বস্বত্ব সংরক্ষিত';
+
+  [].forEach.call(view.querySelectorAll('.entry'), function(el){
+    el.onclick = function(){ location.hash = '#/lekha/'+el.dataset.slug; };
+    el.onkeydown = function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); el.click(); } };
+  });
+}
+
+/* ───────────── render: post ───────────── */
+function renderPost(slug){
+  var p = POSTS.filter(function(x){return x.slug===slug;})[0];
+  if(!p){ location.hash='#/'; return; }
+  mast.style.display='none'; bar.style.display='none';
+  view.innerHTML =
+    '<button class="back" id="back">← সব লেখা</button>'+
+    '<article>'+
+      '<span class="kind">'+p.kind+'</span>'+
+      '<h1>'+p.title+'</h1>'+
+      (p.sub ? '<p class="sub">'+p.sub+'</p>' : '')+
+      '<div class="meta"><span>'+bnDate(p.date)+'</span><span class="dot">·</span>'+
+      '<span>'+readTime(p.body)+'</span>'+
+      (p.author ? '<span class="dot">·</span><span>'+p.author+'</span>' : '')+
+      '<span class="dot">·</span><button class="back" id="share" style="padding:0">ভাগ করুন</button></div>'+
+      p.body+
+    '</article>';
+  document.getElementById('foot-count').textContent = '';
+  document.getElementById('back').onclick = function(){ location.hash='#/'; };
+  document.getElementById('share').onclick = function(){
+    var u = location.href;
+    if(navigator.share) navigator.share({title:p.title, url:u}).catch(function(){});
+    else if(navigator.clipboard) navigator.clipboard.writeText(u).then(function(){
+      document.getElementById('share').textContent='ঠিকানা কপি হয়েছে';
+    });
+  };
+  bindImages();
+}
+
+/* ───────────── render: about ───────────── */
+function renderAbout(){
+  mast.style.display='none'; bar.style.display='none';
+  view.innerHTML =
+    '<button class="back" id="back">← সব লেখা</button>'+
+    '<div class="about">'+
+      '<img class="por" src="'+IMG.me+'" alt="সুশান্ত কুণ্ডু">'+
+      '<h1>পরিচয়</h1>'+
+      '<p>জীবনটা খুবই কষ্ট ও লড়াইয়ের মধ্য দিয়ে প্রবাহিত। দারিদ্র্যের কারণে বা প্রলোভনের কাছে নতি স্বীকার করে নৈতিকতাকে বিসর্জন দিইনি কখনো, কোনদিন কারো ক্ষতি করিনি, আজীবন এইভাবেই চলবে — এটাই আমার জীবনের ব্রত।</p>'+
+      '<p style="color:var(--ink-soft)">লেখালিখির বিষয় মূলত রবীন্দ্রনাথ, বাংলার গ্রামজীবন, স্মৃতি ও শ্রদ্ধাঞ্জলি। কর্মসূত্রে বাঁকুড়া-১ নং ব্লক অফিস।</p>'+
+      '<h3 style="font-family:\'Anek Bangla\',sans-serif;font-weight:600;margin-top:2em">যোগাযোগ</h3>'+
+      '<p><a href="tel:+919232376020">৯২৩২৩৭৬০২০</a></p>'+
+    '</div>';
+  document.getElementById('back').onclick = function(){ location.hash='#/'; };
+  document.getElementById('foot-count').textContent = '';
+}
+
+/* ───────────── router ───────────── */
+function route(){
+  var h = location.hash || '#/';
+  window.scrollTo(0,0);
+  if(h.indexOf('#/lekha/')===0) renderPost(h.slice(8));
+  else if(h==='#/porichoy') renderAbout();
+  else renderHome();
+}
+window.addEventListener('hashchange', route);
+
+document.getElementById('about-link').onclick=function(){ location.hash='#/porichoy'; };
+document.getElementById('home-link').onclick =function(){ location.hash='#/'; };
+
+/* ───────────── search ───────────── */
+var qEl = document.getElementById('q'), t;
+qEl.addEventListener('input', function(){
+  clearTimeout(t);
+  t = setTimeout(function(){ query = qEl.value; if(location.hash && location.hash!=='#/') location.hash='#/'; else renderHome(); }, 150);
+});
+
+/* ───────────── type size ───────────── */
+var SIZES=[17,18,19,20,22,24];
+var si = +(localStorage.getItem('sk-fs')||2);
+function applyFS(){ document.documentElement.style.setProperty('--fs', SIZES[si]+'px'); localStorage.setItem('sk-fs', si); }
+applyFS();
+document.getElementById('fsup').onclick=function(){ si=Math.min(SIZES.length-1,si+1); applyFS(); };
+document.getElementById('fsdn').onclick=function(){ si=Math.max(0,si-1); applyFS(); };
+
+/* ───────────── theme ───────────── */
+var tBtn = document.getElementById('theme');
+function applyTheme(v){
+  document.documentElement.setAttribute('data-theme', v);
+  tBtn.textContent = v==='dark' ? 'দিন' : 'রাত';
+  document.querySelector('meta[name=theme-color]').setAttribute('content', v==='dark' ? '#111721' : '#EDEAE0');
+  localStorage.setItem('sk-theme', v);
+}
+applyTheme(localStorage.getItem('sk-theme') || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark':'light'));
+tBtn.onclick=function(){ applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark'); };
+
+/* ───────────── lightbox ───────────── */
+var lb = document.getElementById('lb'), lbImg = lb.querySelector('img');
+function bindImages(){
+  [].forEach.call(view.querySelectorAll('figure img'), function(im){
+    im.onclick=function(){ lbImg.src=im.src; lbImg.alt=im.alt; lb.classList.add('on'); document.body.style.overflow='hidden'; };
+  });
+}
+function closeLb(){ lb.classList.remove('on'); lbImg.src=''; document.body.style.overflow=''; }
+lb.onclick = closeLb;
+document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ if(lb.classList.contains('on')) closeLb(); } });
+
+/* ───────────── progress + up ───────────── */
+var prog = document.getElementById('prog'), up = document.getElementById('up');
+function onScroll(){
+  var h = document.documentElement.scrollHeight - innerHeight;
+  prog.style.width = (h>0 ? (scrollY/h*100) : 0) + '%';
+  up.classList.toggle('on', scrollY > 700);
+}
+addEventListener('scroll', onScroll, {passive:true});
+addEventListener('resize', onScroll);
+up.onclick=function(){ scrollTo({top:0, behavior:'smooth'}); };
+
+route(); onScroll();
+})();
+</script>
+</body>
+</html>
