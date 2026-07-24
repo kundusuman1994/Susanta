@@ -80,6 +80,14 @@ header.mast{padding:clamp(38px,7vw,72px) 0 0}
   font-size:clamp(2.5rem,10vw,5rem);line-height:1.06;letter-spacing:-.015em;
   margin:0 0 12px;color:var(--ink)
 }
+.titlerow{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.titlerow h1{margin-bottom:0}
+#about-top{
+  background:none;border:0;cursor:pointer;padding:0;color:var(--madder);
+  font-family:'Ekushey Saraswatii',serif;font-weight:400;
+  font-size:clamp(1.25rem,5vw,2.5rem);line-height:1.06;
+}
+#about-top:hover{text-decoration:underline}
 .mast .vow{
   max-width:34rem;color:var(--ink-soft);font-size:.94rem;line-height:1.85;margin:0 0 26px
 }
@@ -292,7 +300,10 @@ footer button:hover{color:var(--madder)}
 <div class="wrap">
   <header class="mast" id="mast">
     <p class="eyebrow">বাঁকুড়া · সাহিত্য · স্মৃতি</p>
-    <h1 style="font-family: 'Ekush', serif; font-weight: 400; font-style: normal">সুশান্ত কুণ্ডু</h1>
+    <div class="titlerow">
+      <h1 style="font-family: 'Ekush', serif; font-weight: 400; font-style: normal">সুশান্ত কুণ্ডু</h1>
+      <button id="about-top">পরিচয়</button>
+    </div>
     <hr class="rule double">
   </header>
   
@@ -671,6 +682,7 @@ function renderAbout(){
   document.getElementById('foot-count').textContent = '';
 }
 
+
 /* ───────────── router ───────────── */
 function route(){
   var h = location.hash || '#/';
@@ -682,6 +694,7 @@ function route(){
 window.addEventListener('hashchange', route);
 
 document.getElementById('about-link').onclick=function(){ location.hash='#/porichoy'; };
+document.getElementById('about-top').onclick=function(){ location.hash='#/porichoy'; };
 document.getElementById('home-link').onclick =function(){ location.hash='#/'; };
 
 /* ───────────── search ───────────── */
