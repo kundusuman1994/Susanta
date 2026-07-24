@@ -237,6 +237,104 @@ figcaption{font-family:'Anek Bangla',sans-serif;font-size:.75rem;color:var(--ink
 .about .por{width:120px;height:120px;border-radius:50%;object-fit:cover;border:1px solid var(--rule);display:block;margin:0 0 22px}
 .about h1{font-family:'Anek Bangla',sans-serif;font-weight:700;font-size:clamp(1.7rem,6vw,2.5rem);margin:0 0 18px;letter-spacing:-.015em}
 .about a{color:var(--indigo)}
+.about h2{
+  font-family:'Anek Bangla',sans-serif;font-weight:600;font-size:1.18rem;
+  margin:2.8em 0 .6em;letter-spacing:-.005em
+}
+.about .whoami{
+  font-family:'Anek Bangla',sans-serif;font-size:.8rem;letter-spacing:.14em;
+  color:var(--madder);margin:0 0 10px
+}
+.about .lede{font-size:1.05em;line-height:2}
+.facts{list-style:none;margin:1.3em 0 0;padding:0;border-top:1px solid var(--rule)}
+.facts li{
+  display:grid;grid-template-columns:7.5rem minmax(0,1fr);gap:6px 16px;
+  padding:12px 0;border-bottom:1px solid var(--rule);font-size:.95em;line-height:1.8;min-width:0
+}
+.facts .k{
+  font-family:'Anek Bangla',sans-serif;font-size:.76rem;font-weight:600;letter-spacing:.1em;
+  color:var(--ink-faint);padding-top:.5em
+}
+.vowbox{
+  margin:2.2em 0 0;padding:20px 22px;background:var(--card);border-radius:3px;
+  border-left:2px solid var(--madder);font-size:1.0em;line-height:2
+}
+.vowbox .en{display:block;margin-top:.9em;color:var(--ink-soft);font-size:.92em}
+.thanks{list-style:none;margin:1.2em 0 0;padding:0}
+.thanks li{padding:14px 0;border-bottom:1px dotted var(--rule);font-size:.96em;line-height:1.85}
+.thanks .who{font-family:'Anek Bangla',sans-serif;font-weight:600;color:var(--indigo)}
+.thanks .role{font-family:'Anek Bangla',sans-serif;font-size:.78rem;color:var(--ink-faint);letter-spacing:.04em}
+.soon{font-family:'Anek Bangla',sans-serif;font-size:.82rem;color:var(--ink-faint);margin-top:16px}
+
+/* ═══════════════ রুচি ও আগ্রহ ═══════════════ */
+.ruchi{max-width:min(66rem,100%);margin:0 auto;padding:10px 0 90px;min-width:0}
+.ruchi h1{font-family:'Anek Bangla',sans-serif;font-weight:700;font-size:clamp(1.7rem,6vw,2.5rem);margin:0 0 14px;letter-spacing:-.015em}
+.ruchi h2{
+  font-family:'Anek Bangla',sans-serif;font-weight:600;font-size:1.18rem;letter-spacing:-.005em;
+  margin:3em 0 .2em;padding-top:16px;border-top:1px solid var(--rule)
+}
+.ruchi .hint{font-family:'Anek Bangla',sans-serif;font-size:.8rem;color:var(--ink-faint);margin:0 0 1.2em;letter-spacing:.03em}
+.ruchi .intro{max-width:var(--measure);color:var(--ink-soft);line-height:2}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:1.6em 0 0;padding:0;list-style:none}
+.tags li{
+  font-family:'Anek Bangla',sans-serif;font-size:.82rem;padding:8px 14px;
+  border:1px solid var(--rule);border-radius:999px;color:var(--ink-soft);background:var(--card)
+}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:34px 24px;margin:1.6em 0 0;min-width:0}
+.pcard{min-width:0}
+.poster{
+  position:relative;aspect-ratio:2/3;border:1px solid var(--rule);border-radius:2px;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:space-between;padding:18px 16px;
+  background:linear-gradient(158deg,var(--card) 0%,var(--paper-2) 100%);
+}
+.poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.poster .num{
+  font-family:'Anek Bangla',sans-serif;font-size:.66rem;font-weight:600;letter-spacing:.24em;
+  color:var(--madder);position:relative;z-index:2
+}
+.poster .pt{
+  font-family:'Anek Bangla',sans-serif;font-weight:700;font-size:1.12rem;line-height:1.3;
+  letter-spacing:-.01em;position:relative;z-index:2
+}
+.poster .pt .en{font-family:Georgia,'Iowan Old Style',serif;font-weight:700}
+.poster .pfoot{
+  font-family:'Anek Bangla',sans-serif;font-size:.72rem;line-height:1.6;color:var(--ink-faint);
+  position:relative;z-index:2
+}
+.poster.film::before,.poster.film::after{
+  content:'';position:absolute;top:0;bottom:0;width:9px;z-index:1;opacity:.5;
+  background:repeating-linear-gradient(180deg, transparent 0 7px, var(--rule) 7px 13px)
+}
+.poster.film::before{left:0;border-right:1px solid var(--rule)}
+.poster.film::after{right:0;border-left:1px solid var(--rule)}
+.poster.film{padding-left:20px;padding-right:20px}
+.poster.book::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:12px;z-index:1;
+  background:var(--madder);opacity:.75
+}
+.poster.book{padding-left:26px}
+.pcard h3{
+  font-family:'Anek Bangla',sans-serif;font-weight:600;font-size:1.02rem;
+  margin:14px 0 3px;line-height:1.45;letter-spacing:-.005em
+}
+.pcard .cred{font-family:'Anek Bangla',sans-serif;font-size:.78rem;color:var(--madder);margin:0 0 8px;letter-spacing:.03em}
+.pcard p.say{margin:0;font-size:.92em;line-height:1.85;color:var(--ink-soft)}
+.en{font-family:Georgia,'Iowan Old Style',serif}
+.ruchi h2 .en,.pcard h3 .en,.tags .en,.pcard .cred .en,.about .en{font-family:system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;font-size:.95em}
+.plain{list-style:none;margin:1.4em 0 0;padding:0}
+.plain li{padding:16px 0;border-bottom:1px solid var(--rule);min-width:0}
+.plain .nm{font-family:'Anek Bangla',sans-serif;font-weight:600;font-size:1.0rem;display:block;margin-bottom:2px}
+.plain .cred{font-family:'Anek Bangla',sans-serif;font-size:.76rem;color:var(--madder);display:block;margin-bottom:6px;letter-spacing:.03em}
+.plain p{margin:0;font-size:.93em;line-height:1.85;color:var(--ink-soft)}
+@media (max-width:720px){
+  .facts li{grid-template-columns:minmax(0,1fr);gap:0}
+  .facts .k{padding-top:0}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:26px 16px}
+  .poster{padding:14px 12px}
+  .poster .pt{font-size:.98rem}
+  .poster.film{padding-left:17px;padding-right:17px}
+  .poster.book{padding-left:22px}
+}
 
 /* ═══════════════ footer ═══════════════ */
 footer{border-top:1px solid var(--rule);padding:28px 0 calc(40px + env(safe-area-inset-bottom));
@@ -321,7 +419,7 @@ footer button:hover{color:var(--madder)}
 
   <footer>
     <span id="foot-count"></span>
-    <span><button id="about-link">পরিচয়</button> · <button id="home-link">সব লেখা</button></span>
+    <span><button id="about-link">পরিচয়</button> · <button id="ruchi-link">রুচি ও আগ্রহ</button> · <button id="home-link">সব লেখা</button></span>
   </footer>
 </div>
 
@@ -666,17 +764,151 @@ function renderPost(slug){
 }
 
 /* ───────────── render: about ───────────── */
+/* কৃতজ্ঞতা — নতুন নাম যোগ করতে হলে নিচের তালিকায় একটি লাইন বসান:
+   ['নাম', 'পরিচয়/সম্পর্ক', 'কী কারণে কৃতজ্ঞতা'] */
+var THANKS = [
+  ['আলো','সহধর্মিণী · গৃহবধূ (housewife)','এই দীর্ঘ পথটা একা হাঁটা যেত না। সংসারের সমস্ত ভার নিঃশব্দে নিজের কাঁধে তুলে নিয়ে তিনি আমাকে পড়ার আর লেখার সময়টুকু দিয়েছেন — অভাবের দিনেও মুখ ভার করেননি, বরং সাহস জুগিয়েছেন। এই লেখাগুলির অর্ধেক তাঁরই।']
+];
+
 function renderAbout(){
   mast.style.display='none'; bar.style.display='none';
   view.innerHTML =
     '<button class="back" id="back">← সব লেখা</button>'+
     '<div class="about">'+
       '<img class="por" src="'+IMG.me+'" alt="সুশান্ত কুণ্ডু">'+
+      '<p class="whoami">সুশান্ত কুণ্ডু · <span class="en">SUSANTA KUNDU</span></p>'+
       '<h1>পরিচয়</h1>'+
-      '<p>জীবনটা খুবই কষ্ট ও লড়াইয়ের মধ্য দিয়ে প্রবাহিত। দারিদ্র্যের কারণে বা প্রলোভনের কাছে নতি স্বীকার করে নৈতিকতাকে বিসর্জন দিইনি কখনো, কোনদিন কারো ক্ষতি করিনি, আজীবন এইভাবেই চলবে — এটাই আমার জীবনের ব্রত।</p>'+
-      '<p style="color:var(--ink-soft)">লেখালিখির বিষয় মূলত রবীন্দ্রনাথ, বাংলার গ্রামজীবন, স্মৃতি ও শ্রদ্ধাঞ্জলি। কর্মসূত্রে বাঁকুড়া-১ নং ব্লক অফিস।</p>'+
-      '<h3 style="font-family:\'Anek Bangla\',sans-serif;font-weight:600;margin-top:2em">যোগাযোগ</h3>'+
-      '<p><a href="tel:+919232376020">৯২৩২৩৭৬০২০</a></p>'+
+
+      '<p class="lede">বাঁকুড়ার রাজগ্রামে থাকি। পেশায় সরকারি কর্মচারী, নেশায় পড়া আর লেখা। '+
+        'অবসরে যা কিছু জমে ওঠে — প্রবন্ধ, অনুগল্প, কবিতা, স্মৃতিকথা — তারই কিছু কিছু এখানে রাখা।</p>'+
+
+      '<div class="vowbox">'+
+        'জীবনটা খুবই কষ্ট ও লড়াইয়ের মধ্য দিয়ে প্রবাহিত। দারিদ্র্যের কারণে বা প্রলোভনের কাছে নতি স্বীকার করে '+
+        'নৈতিকতাকে বিসর্জন দিইনি কখনো, কোনদিন কারো ক্ষতি করিনি, আজীবন এইভাবেই চলবে — এটাই আমার জীবনের ব্রত।'+
+        '<span class="en">Life is full of hardships and struggles. I have never sacrificed my morality to poverty '+
+        'or temptation. I have never harmed anyone. I will continue like this for the rest of my life. '+
+        'This is my life’s vow.</span>'+
+      '</div>'+
+
+      '<h2>এক নজরে</h2>'+
+      '<ul class="facts">'+
+        '<li><span class="k">পেশা</span><span>সরকারি চাকরি — পশ্চিমবঙ্গ রাজ্য সরকার '+
+          '(<span class="en">Govt. Service, WB State</span>); কর্মসূত্রে বাঁকুড়া-১ নং ব্লক অফিস</span></li>'+
+        '<li><span class="k">নিবাস</span><span>ওয়ার্ড নং ১৩, রাজগ্রাম, বাঁকুড়া, পশ্চিমবঙ্গ — ৭২২১৪৬</span></li>'+
+        '<li><span class="k">লেখালিখি</span><span>মূলত রবীন্দ্রনাথ, বাংলার গ্রামজীবন, স্মৃতি ও শ্রদ্ধাঞ্জলি</span></li>'+
+        '<li><span class="k">অনলাইনে</span><span>অক্টোবর ২০১৫ থেকে (<span class="en">Blogger</span>)</span></li>'+
+        '<li><span class="k">যোগাযোগ</span><span><a href="tel:+919232376020">৯২৩২৩৭৬০২০</a></span></li>'+
+      '</ul>'+
+
+      '<h2>কৃতজ্ঞতা স্বীকার</h2>'+
+      '<p style="color:var(--ink-soft)">যে-কটি লেখা দাঁড়িয়ে আছে, তার পিছনে অনেক মানুষের হাত। '+
+        'সকলের কথা একদিনে লেখা যায় না — ধীরে ধীরে এই তালিকা দীর্ঘ হবে।</p>'+
+      '<ul class="thanks">'+
+        THANKS.map(function(t){
+          return '<li><span class="who">'+t[0]+'</span> <span class="role">— '+t[1]+'</span><br>'+t[2]+'</li>';
+        }).join('')+
+      '</ul>'+
+      '<p class="soon">আরও নাম যুক্ত হবে…</p>'+
+    '</div>';
+  document.getElementById('back').onclick = function(){ location.hash='#/'; };
+  document.getElementById('foot-count').textContent = '';
+}
+
+/* ───────────── রুচি ও আগ্রহ ─────────────
+   ছবি বা বইয়ের প্রচ্ছদ বসাতে হলে সেই এন্ট্রির শেষ ঘরে ছবির লিঙ্ক দিন,
+   ফাঁকা রাখলে টাইপোগ্রাফিক প্রচ্ছদ নিজেই তৈরি হবে।
+   [শিরোনাম, ইংরেজি নাম, পরিচালক/লেখক · সাল, ভাষ্য, ছবির লিঙ্ক] */
+var TAGS = ['বাংলা সাহিত্য','রবীন্দ্রনাথ ঠাকুর','জীবনানন্দ দাশ','নাটক','আবৃত্তি','কবিতা','লেখালিখি',
+  'সরকারি নিয়ম ও <span class="en">G.O.</span>','সরকারি চাকরির প্রশিক্ষণ','মেধাবী দুঃস্থ ছাত্রছাত্রীর পাশে',
+  'সততা · দায়িত্ববোধ · সময়ানুবর্তিতা','<span class="en">WBBACHC</span> অ্যাসোসিয়েশন'];
+
+var FILMS = [
+  ['পথের পাঁচালী','Pather Panchali','সত্যজিৎ রায় · ১৯৫৫',
+   'বিভূতিভূষণের উপন্যাস থেকে নিশ্চিন্দিপুরের অপু আর দুর্গার শৈশব। দারিদ্র্যের ভিতরেও যে বিস্ময়, খেলা আর সৌন্দর্য বেঁচে থাকে — সেটাই ছবিটির প্রাণ। ভারতীয় চলচ্চিত্রের মোড় ঘুরিয়ে দেওয়া কাজ।',''],
+  ['গণশত্রু','Ganashatru','সত্যজিৎ রায় · ১৯৮৯',
+   'ইবসেনের <span class="en">An Enemy of the People</span> অবলম্বনে। এক ডাক্তার সত্য বলতে গিয়ে গোটা শহরের বিরুদ্ধে একা দাঁড়ান। বিশ্বাস, স্বার্থ আর জনমতের চাপে সততার পরীক্ষা।',''],
+  ['একডক্টর কী মউত','Ek Doctor Ki Maut','তপন সিংহ · ১৯৯০',
+   'রমাপদ চৌধুরীর গল্প অবলম্বনে। এক নিঃসঙ্গ গবেষক-চিকিৎসকের আবিষ্কার, আর তাকে ঘিরে প্রতিষ্ঠানের ঈর্ষা ও আমলাতন্ত্রের নিষ্ঠুরতা। মেধার সঙ্গে ব্যবস্থার সংঘাতের নির্মম ছবি।',''],
+  ['মনের মানুষ','Moner Manush','গৌতম ঘোষ · ২০১০',
+   'সুনীল গঙ্গোপাধ্যায়ের উপন্যাস অবলম্বনে লালন ফকিরের জীবন। জাত-ধর্ম-সীমান্তের ঊর্ধ্বে গিয়ে মানুষকে খোঁজা — দুই বাংলার যৌথ প্রযোজনায় তৈরি।',''],
+  ['দেবশিশু','Debshishu','উৎপলেন্দু চক্রবর্তী · ১৯৮৫',
+   'কুসংস্কার আর দারিদ্র্য কীভাবে একজন অসহায় মানুষকেও পণ্য করে তোলে, তার নির্মোহ বয়ান। শহুরে ভক্তি-ব্যবসার আড়ালে লুকিয়ে থাকা শোষণকে ছবিটি আড়াল করে না।',''],
+  ['মণ্ডী','Mandi','শ্যাম বেনেগাল · ১৯৮৩',
+   'শহরের একটি কোঠাকে ঘিরে রাজনীতি, ভদ্রলোকি নৈতিকতা আর ভণ্ডামির তীক্ষ্ণ ব্যঙ্গ। শাবানা আজমি ও স্মিতা পাটিলের অভিনয়ে ভারতীয় সমান্তরাল ধারার অন্যতম সেরা কমেডি-স্যাটায়ার।',''],
+  ['আয়নাবাজি','Aynabaji','অমিতাভ রেজা চৌধুরী · ২০১৬',
+   'ঢাকার ছবি — অন্যের হয়ে জেল খাটে এমন এক অভিনেতার গল্প। পরিচয় বদলের খেলায় অপরাধ, বিবেক আর নাগরিক জীবনের ফাঁকফোকর ধরা পড়ে। সাম্প্রতিক বাংলাদেশি ছবির উজ্জ্বল উদাহরণ।',''],
+  ['বাইসাইকেল থিভস','Bicycle Thieves','ভিত্তোরিও দে সিকা · ১৯৪৮',
+   'যুদ্ধ-পরবর্তী রোম, একটি হারানো সাইকেল, বাবা আর ছেলের সারাদিনের খোঁজ। ইতালীয় নব্য-বাস্তববাদের (<span class="en">Neorealism</span>) পথপ্রদর্শক ছবি — সত্যজিৎ রায়ের উপরেও যার গভীর ছাপ।',''],
+  ['টাইটানিক','Titanic','জেমস ক্যামেরন · ১৯৯৭',
+   'সত্যিকারের জাহাজডুবির ইতিহাসের উপর দাঁড়ানো এক প্রেমের আখ্যান। শ্রেণিবিভাজন, দম্ভ আর মানুষের ক্ষুদ্রতা — বিপুল আয়োজনের ভিতরেও ছবিটি সেই কথাই বলে।','']
+];
+
+var BOOKS = [
+  ['রবীন্দ্রজীবনী','','প্রভাতকুমার মুখোপাধ্যায়',
+   'রবীন্দ্রনাথের জীবনের প্রামাণ্য বিবরণ — চিঠি, নথি আর সাক্ষ্যের উপর দাঁড়ানো বহু খণ্ডের কাজ। কবিকে ভক্তির চোখে নয়, মানুষের চোখে দেখার বই।',''],
+  ['খোকাবাবুর প্রত্যাবর্তন','','রবীন্দ্রনাথ ঠাকুর',
+   'রাইচরণের গল্প — কর্তব্য, অপরাধবোধ আর নিঃশব্দ আত্মত্যাগ নিয়ে বাংলা ছোটগল্পের অন্যতম মর্মস্পর্শী রচনা।',''],
+  ['ছাড়পত্র','','সুকান্ত ভট্টাচার্য',
+   'মাত্র একুশ বছরের আয়ু, অথচ ক্ষুধা, দুর্ভিক্ষ আর অন্যায়ের বিরুদ্ধে যে কণ্ঠস্বর তিনি রেখে গেছেন তা আজও তরুণ। কবিতাকে তিনি শ্রমজীবী মানুষের পাশে দাঁড় করিয়েছিলেন।',''],
+  ['রূপসী বাংলা','','জীবনানন্দ দাশ',
+   'ধান, নদী, শালিক আর সন্ধ্যার আলোয় গাঁথা এক বাংলা — যেখানে প্রকৃতি আর নিঃসঙ্গতা একাকার। বাংলা কবিতার আধুনিক কল্পনার জগৎ তাঁর হাতেই বদলে যায়।',''],
+  ['শাহ্ আবদুল করিম','','বাউল-গীতিকবি, সিলেট',
+   'ভাটি অঞ্চলের বাউল সাধক ও গীতিকার। সহজ কথায় মানুষে-মানুষে মিলনের গান বেঁধেছেন; লোকায়ত দর্শনকে তিনি গানের ভিতর দিয়ে আজকের শ্রোতার কাছে পৌঁছে দিয়েছেন।','']
+];
+
+var MUSIC = [
+  ['পণ্ডিত রবিশঙ্কর','সেতার · চলচ্চিত্রের আবহসঙ্গীত',
+   'সত্যজিৎ রায়ের অপু-ত্রয়ীর সুর তাঁর হাতে তৈরি। রাগসঙ্গীতের ভাষাকে বিশ্বের দরবারে নিয়ে গিয়েছিলেন, অথচ ছবির প্রয়োজনে সেই সুর হয়ে উঠত একেবারে সরল।'],
+  ['দেবাশিস দাশগুপ্ত','‘মাধব মালঞ্চী কন্যা’',
+   'পূর্ববঙ্গের ঘুমপাড়ানি ও লোকগানের ধারা থেকে উঠে আসা সুর। শব্দের চেয়ে সুরের টানেই গানটি মনে গেঁথে যায়।'],
+  ['<span class="en">James Horner</span>','<span class="en">Titanic</span>-এর আবহসঙ্গীত · ১৯৯৭',
+   'সমুদ্র, বিচ্ছেদ আর বিশালতা — অল্প কয়েকটি সুরের পুনরাবৃত্তিতেই ছবির গোটা আবেগ ধরা পড়ে।']
+];
+
+function posterHTML(row, cls, n){
+  var img = row[4];
+  var en  = row[1];
+  return '<div class="poster '+cls+'">'+
+    (img ? '<img loading="lazy" src="'+img+'" alt="">' : '')+
+    '<div class="num">'+bn(n)+'</div>'+
+    '<div class="pt">'+row[0]+(en ? '<br><span class="en" style="font-size:.8em;font-weight:400">'+en+'</span>' : '')+'</div>'+
+    '<div class="pfoot">'+row[2]+'</div>'+
+  '</div>';
+}
+
+function cardsHTML(rows, cls){
+  return '<div class="grid">'+ rows.map(function(r,i){
+    return '<div class="pcard">'+
+      posterHTML(r, cls, i+1)+
+      '<h3>'+r[0]+'</h3>'+
+      '<p class="cred">'+r[2]+'</p>'+
+      '<p class="say">'+r[3]+'</p>'+
+    '</div>';
+  }).join('') +'</div>';
+}
+
+function renderRuchi(){
+  mast.style.display='none'; bar.style.display='none';
+  view.innerHTML =
+    '<button class="back" id="back">← সব লেখা</button>'+
+    '<div class="ruchi">'+
+      '<h1>রুচি ও আগ্রহ</h1>'+
+      '<p class="intro">যে ছবি, যে বই আর যে সুর বহুদিন সঙ্গে থেকে গেছে — তাদের কথা। '+
+        'বিচার নয়, শুধু ভালো লাগার কারণটুকু বলার চেষ্টা।</p>'+
+      '<ul class="tags">'+ TAGS.map(function(t){ return '<li>'+t+'</li>'; }).join('') +'</ul>'+
+
+      '<h2>প্রিয় চলচ্চিত্র</h2>'+
+      '<p class="hint">নয়টি ছবি, যেগুলি বারবার দেখা যায়</p>'+
+      cardsHTML(FILMS,'film')+
+
+      '<h2>প্রিয় বই ও সাহিত্য</h2>'+
+      '<p class="hint">যাঁদের লেখা হাতের কাছেই থাকে</p>'+
+      cardsHTML(BOOKS,'book')+
+
+      '<h2>প্রিয় সঙ্গীত</h2>'+
+      '<ul class="plain">'+ MUSIC.map(function(m){
+        return '<li><span class="nm">'+m[0]+'</span><span class="cred">'+m[1]+'</span><p>'+m[2]+'</p></li>';
+      }).join('') +'</ul>'+
     '</div>';
   document.getElementById('back').onclick = function(){ location.hash='#/'; };
   document.getElementById('foot-count').textContent = '';
@@ -689,12 +921,14 @@ function route(){
   window.scrollTo(0,0);
   if(h.indexOf('#/lekha/')===0) renderPost(h.slice(8));
   else if(h==='#/porichoy') renderAbout();
+  else if(h==='#/ruchi') renderRuchi();
   else renderHome();
 }
 window.addEventListener('hashchange', route);
 
 document.getElementById('about-link').onclick=function(){ location.hash='#/porichoy'; };
 document.getElementById('about-top').onclick=function(){ location.hash='#/porichoy'; };
+document.getElementById('ruchi-link').onclick=function(){ location.hash='#/ruchi'; };
 document.getElementById('home-link').onclick =function(){ location.hash='#/'; };
 
 /* ───────────── search ───────────── */
