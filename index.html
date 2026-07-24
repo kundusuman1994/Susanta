@@ -91,6 +91,12 @@ header.mast{padding:clamp(38px,7vw,72px) 0 0}
 .mast .vow{
   max-width:34rem;color:var(--ink-soft);font-size:.94rem;line-height:1.85;margin:0 0 26px
 }
+#ruchi-top{
+  background:none;border:0;cursor:pointer;padding:0 0 0 6px;color:var(--madder);
+  font-family:'Ekush',serif;font-weight:400;
+  font-size:clamp(.63rem,2.5vw,1.25rem);line-height:1.06;
+}
+#ruchi-top:hover{text-decoration:underline}
 .rule{height:1px;background:var(--rule);border:0;margin:0}
 .rule.double{height:4px;background:none;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
 
@@ -407,6 +413,7 @@ footer button:hover{color:var(--madder)}
   
   <nav class="bar" id="bar">
     <div class="chips" id="chips"></div>
+    <button id="ruchi-top">রুচি ও আগ্রহ</button>
     <div class="tools">
       <div class="search"><input id="q" type="search" placeholder="লেখা খুঁজুন" aria-label="লেখা খুঁজুন"></div>
       <button class="icb" id="fsdn" aria-label="হরফ ছোট করুন">ক&minus;</button>
@@ -929,6 +936,7 @@ window.addEventListener('hashchange', route);
 document.getElementById('about-link').onclick=function(){ location.hash='#/porichoy'; };
 document.getElementById('about-top').onclick=function(){ location.hash='#/porichoy'; };
 document.getElementById('ruchi-link').onclick=function(){ location.hash='#/ruchi'; };
+document.getElementById('ruchi-top').onclick=function(){ location.hash='#/ruchi'; };
 document.getElementById('home-link').onclick =function(){ location.hash='#/'; };
 
 /* ───────────── search ───────────── */
